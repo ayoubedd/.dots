@@ -1,0 +1,8 @@
+[user]
+	email = eddaouddi.ayoub@gmail.com
+	name = Ayoub Eddaoudi
+[core]
+	excludesfile = /home/orbit/.gitignore_global
+	editor = vim
+[init]
+	defaultBranch = master
