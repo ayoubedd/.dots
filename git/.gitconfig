@@ -1,8 +1,22 @@
 [user]
-	email = eddaouddi.ayoub@gmail.com
-	name = Ayoub Eddaoudi
+	email = murphy.harleyy@gmail.com
+	name = 0x0rb1t
+
 [core]
 	excludesfile = /home/orbit/.gitignore_global
-	editor = vim
+	editor = lvim
+
 [init]
 	defaultBranch = master
+
+[includeIf "~/Dev/per/"]
+	path = .gitconfig_per
+
+[includeIf "~/Dev/pro/"]
+	path = .gitconfig_pro
+
+[alias]
+	st = status
+	lg = log --oneline
+	df = diff
+	ci = commit -m
