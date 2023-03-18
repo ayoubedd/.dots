@@ -3,5 +3,5 @@
 ## Usage
 
 ```shell
-stow -vSt ~/ *
+./setup
 ```
