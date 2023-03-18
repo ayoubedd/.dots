@@ -3,5 +3,5 @@
 ## Usage
 
 ```shell
-./setup
+./setup.sh
 ```
