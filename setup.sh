@@ -22,7 +22,7 @@ then
     exit 1
 fi
 
-cd ~/.dotfiles
+cd "$DOTFILES_DIR"
 
 echo [INFO] Stowing your config files.
 stow -vSt ~/test $(find . -maxdepth 1 -type d -not -path './.git' -not -path . | tr -d './')
