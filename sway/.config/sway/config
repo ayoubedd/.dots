@@ -10,10 +10,10 @@ set $down j
 
 set $mod Mod4
 set $term alacritty
-set $lock ~/.config/rofi/modi/lock.sh
+set $lock ~/.config/wofi/scripts/lock.sh
 set $waybar ~/.config/waybar/waybar.sh
-set $launcher ~/.config/rofi/modi/launcher.sh
-set $window_picker ~/.config/rofi/modi/window_picker.sh
+set $launcher ~/.config/wofi/scripts/launcher.sh
+set $window_picker ~/.config/wofi/scripts/window_picker.sh
 set $wallpaper ~/.config/sway/wallpaper.png
 
 output eDP-1 bg $wallpaper fill

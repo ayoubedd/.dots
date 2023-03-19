@@ -1,17 +1,12 @@
 #!/bin/bash
 
-entries="
-Lock,
-Logout,
-Suspend,
-Reboot,
-Shutdown"
+entries="Lock,Logout,Suspend,Reboot,Shutdown"
 
-selected=$(echo $entries | rofi -m 0 -dmenu -sep ',' -p "power" -i | awk '{print tolower($1)}')
+selected=$(echo $entries | tr ',' '\n' | wofi -n -dmenu -p "Lock" | awk '{print tolower($1)}')
 
 case $selected in
   lock)
-    exec ~/.local/bin/scripts/lock.sh;;
+    exec swaylock -f;;
   logout)
     swaymsg exit;;
   suspend)
