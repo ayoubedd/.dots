@@ -1,0 +1,100 @@
+output eDP-1 pos 0 0 scale 2
+
+set $left h
+set $right l
+set $up k
+set $down j
+
+set $mod Mod4
+set $term alacritty
+set $lock ~/.config/rofi/modi/lock.sh
+set $waybar ~/.config/waybar/waybar.sh
+set $launcher ~/.config/rofi/modi/launcher.sh
+set $wallpaper ~/.config/sway/wallpaper.png
+
+output eDP-1 bg $wallpaper fill
+
+# workspaces
+set $ws1  
+set $ws2  
+set $ws3  
+set $ws4  
+set $ws5  
+set $ws6  
+
+font pango:Sans 12
+
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders smart
+
+smart_gaps on
+gaps inner 10
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+bindsym $mod+Shift+1 move container to workspace $ws1, workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2, workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3, workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4, workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5, workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6, workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7, workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8, workspace $ws8
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+
+# Default workspaces for common programs
+assign [class="^Alacritty$"] $ws1
+
+
+bindsym $mod+f fullscreen
+
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r reload
+bindsym $mod+Return exec $term
+
+
+# Multimedia
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
+bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Brightness controls
+bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+
+bindsym $mod+x exec $lock
+bindsym $mod+space exec $launcher
+
+exec_always $waybar
