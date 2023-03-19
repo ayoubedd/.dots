@@ -10,26 +10,36 @@ set $term alacritty
 set $lock ~/.config/rofi/modi/lock.sh
 set $waybar ~/.config/waybar/waybar.sh
 set $launcher ~/.config/rofi/modi/launcher.sh
+set $window_picker ~/.config/rofi/modi/window_picker.sh
 set $wallpaper ~/.config/sway/wallpaper.png
 
 output eDP-1 bg $wallpaper fill
 
 # workspaces
-set $ws1  
-set $ws2  
-set $ws3  
-set $ws4  
-set $ws5  
-set $ws6  
+# set $ws1  
+# set $ws2  
+# set $ws3  
+# set $ws4  
+# set $ws5  
+# set $ws6  
 
-font pango:Sans 12
 
-default_border pixel 1
+# window decorations
+# class			        border	    background	text        indicator   child_border
+# client.focused          #A4B9EF     #332E41     #E5B4E2     #DADAE8     #A4B9EF
+# client.focused_inactive #A4B9EF     #332E41     #E5B4E2     #DADAE8     #A4B9EF
+# client.unfocused        #A4B9EF     #1E1E28     #DADAE8     #DADAE8     #575268
+# client.urgent           #A4B9EF     #575268     #EBDDAA     #DADAE8     #EBDDAA
+
+font pango:JetBrainsMono Nerd Font 12
+
+default_border pixel 2
 default_floating_border normal
 hide_edge_borders smart
 
-smart_gaps on
-gaps inner 10
+smart_gaps off
+gaps inner 5
+
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -55,6 +65,12 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
+# Move the focused window with the same, but add Shift
+bindsym 	$mod+Shift+$left 	move 	left
+bindsym 	$mod+Shift+$down 	move 	down
+bindsym 	$mod+Shift+$up 		move 	up
+bindsym 	$mod+Shift+$right 	move 	right
+
 
 mode "resize" {
     bindsym $left resize shrink width 10px
@@ -68,18 +84,39 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+# Switch the current container between different layout styles
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # Default workspaces for common programs
 assign [class="^Alacritty$"] $ws1
+assign [class="^Spotify"] 4
 
 
-bindsym $mod+f fullscreen
+# Idle configuration
+exec swayidle -w \
+	timeout 30 'swaylock -f' \
+	timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f'
 
 
-bindsym $mod+Shift+q kill
-bindsym $mod+Shift+r reload
+# switch between present and previous workspace
+bindsym 	$mod+Tab 	workspace 	back_and_forth
+
+
+# You can "split" the current object of your focus 
+bindsym 	$mod+b 		splith
+bindsym 	$mod+v 		splitv
+
+# Toggle floating 
+bindsym 	$mod+s 		floating 	toggle
+
+# Keybinds
 bindsym $mod+Return exec $term
-
+bindsym $mod+q kill
+bindsym $mod+Shift+r reload
+bindsym $mod+f fullscreen
 
 # Multimedia
 bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
@@ -95,6 +132,7 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 
 bindsym $mod+x exec $lock
+bindsym $mod+w exec $window_picker
 bindsym $mod+space exec $launcher
 
 exec_always $waybar
