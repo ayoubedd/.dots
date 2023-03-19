@@ -3,7 +3,7 @@
 REPO_URL=https://github.com/ayoubedd/.dotfiles
 DOTFILES_DIR="$HOME/.dotfiles"
 USER=$(whoami)
-PACKAGES=(base-devel zsh rustup go stow gdb nasm ncdu lf alacritty vim git python python-pip tree tmux docker docker-compose downgrade zip unzip sway swaybg waybar rofi)
+PACKAGES=(base-devel zsh rustup go stow gdb nasm ncdu lf alacritty vim git python python-pip tree tmux docker docker-compose downgrade zip unzip sway swaybg waybar rofi light)
 
 if [ "$USER" == "root" ]
 then
