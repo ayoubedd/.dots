@@ -44,4 +44,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
+echo '[INFO] Insalling AUR packages.'
+paru -S greetd-tuigreet <<< Y
+
 echo '[INFO] Done.'
