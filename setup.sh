@@ -15,7 +15,18 @@ echo [INFO] Installing system packages.
 sudo pacman --needed -Syuu ${PACKAGES[@]} <<< Y
 
 echo [INFO] Cloning .dotfiles repo.
-git clone --recurse-submodules "$REPO_URL" "$DOTFILES_DIR"
+if [ -d "$DOTFILES_DIR" ]
+then
+    cd "$DOTFILES_DIR"
+    if [ ! -d "$DOTFILES_DIR/.git" ]
+    then
+      echo [ERROR] existing \"$DOTFILES_DIR\" is not a repositry.
+      exit 1
+    fi
+    git pull
+else
+    git clone --recurse-submodules "$REPO_URL" "$DOTFILES_DIR"
+fi
 
 if [ "$?" != "0" ]
 then
