@@ -2,7 +2,7 @@ output eDP-1 scale 2
 
 # Startup
 exec mako
-exec kanshi
+exec_always kanshi
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 set $left h
@@ -18,6 +18,12 @@ set $launcher ~/.config/wofi/scripts/launcher.sh
 set $window_picker ~/.config/wofi/scripts/window_picker.sh
 set $wallpaper ~/.config/sway/wallpaper.png
 
+# set $snaparea grim -g "$(slurp)" - | swappy -f - -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+# set $snapfull grim -g "$(slurp -o)" - | swappy -f - -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_screen.png"
+
+set $snaparea grim -g "$(slurp)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+set $snapfull grim -g "$(slurp -o)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+ 
 output eDP-1 bg $wallpaper fill
 
 # window decorations
@@ -79,6 +85,39 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+mode "$mode_snap" {
+  bindsym a mode default, exec $snaparea
+  bindsym f mode default, exec $snapfull
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym Space mode "default"
+}
+
+# Super+P is the main bind used, but of course we want PrintScr to work as well.
+bindsym $mod+p mode "$mode_snap"
+bindsym Print mode "$mode_snap"
+
+
+mode "$mode_vim" {
+  bindsym {
+    h exec wtype -k left
+    j exec wtype -k down
+    k exec wtype -k up
+    l exec wtype -k right
+    0 exec wtype -k home
+    dollar exec wtype -k end
+    Ctrl+u exec wtype -k pageup
+    Ctrl+d exec wtype -k pagedown
+  }
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym Space mode "default"
+}
+
+bindsym $mod+n mode "$mode_vim"
+
 # Switch the current container between different layout styles
 # bindsym $mod+s layout stacking
 # bindsym $mod+w layout tabbed
@@ -111,7 +150,7 @@ bindsym 	$mod+s 		floating 	toggle
 
 # Keybinds
 bindsym $mod+Return exec $term
-bindsym $mod+q kill
+bindsym $mod+c kill
 bindsym $mod+Shift+r reload
 bindsym $mod+f fullscreen
 bindsym $mod+x exec $lock
