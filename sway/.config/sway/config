@@ -2,6 +2,7 @@ output eDP-1 scale 2
 
 # Startup
 exec mako
+exec kanshi
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 set $left h
