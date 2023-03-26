@@ -3,7 +3,7 @@
 REPO_URL=https://github.com/ayoubedd/.dotfiles
 DOTFILES_DIR="$HOME/.dotfiles"
 USER=$(whoami)
-PACKAGES=(base-devel zsh rustup go stow gdb nasm ncdu lf alacritty vim git python python-pip tree tmux docker docker-compose downgrade zip unzip sway swaybg waybar wofi light zathura swayimg paru greetd grim wtype slurp swappy kanshi curl wget axel neovim wl-clipboard mako thunar)
+PACKAGES=(base-devel zsh rustup go stow gdb nasm ncdu lf alacritty vim git python python-pip tree tmux docker docker-compose downgrade zip unzip sway swaybg waybar wofi light zathura swayimg paru greetd grim wtype slurp swappy kanshi curl wget axel neovim wl-clipboard mako thunar papirus-icon-theme)
 
 if [[ "$USER" == "root" ]]
 then
@@ -12,7 +12,7 @@ then
 fi
 
 echo '[INFO] Installing system packages.'
-sudo pacman --needed -Syuu ${PACKAGES[@]} <<< Y
+sudo pacman --needed -Sy ${PACKAGES[@]}
 
 echo '[INFO] Cloning .dotfiles repo.'
 if [ -d "$DOTFILES_DIR" ]
@@ -45,6 +45,6 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 
 echo '[INFO] Insalling AUR packages.'
-paru -S greetd-tuigreet <<< Y
+paru --needed -S greetd-tuigreet catppuccin-cursors-mocha catppuccin-gtk-theme-mocha
 
 echo '[INFO] Done.'
