@@ -1,17 +1,19 @@
+@import "mocha.css";
+
 * {
     border-radius: 0;
     font-family: 'Operator Mono SSm Book';
-    font-size: 12pt;
+    font-size: 11pt;
     min-height: 0;
 }
 
 window#waybar {
-    background: #1E1E28;
-    color: #DADAE8;
+    background: @base;
+    color: @text;
 }
 
 tooltip {
-	background: #1E1E28;
+	background: @base;
 	border-radius: 15px;
 	border-width: 2px;
 	border-style: solid;
@@ -34,11 +36,11 @@ tooltip {
 }
 
 #workspaces button.focused {
-    color: #A4B9EF;
+    color: @blue;
 }
 
 #workspaces button.urgent {
-    color: #F9C096;
+    color: @red;
 }
 
 #workspaces button:hover {
