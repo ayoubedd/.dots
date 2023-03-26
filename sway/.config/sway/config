@@ -1,30 +1,47 @@
 output eDP-1 scale 2
 
-# Startup
-exec mako
-exec_always kanshi
+# Background apps
+exec_always {
+  mako
+  kanshi
+}
+
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-set $left h
-set $right l
-set $up k
-set $down j
+set {
+  $left h
+  $right l
+  $up k
+  $down j
 
-set $mod Mod4
-set $term alacritty
-set $lock ~/.config/wofi/scripts/lock.sh
-set $waybar ~/.config/waybar/waybar.sh
-set $launcher ~/.config/wofi/scripts/launcher.sh
-set $window_picker ~/.config/wofi/scripts/window_picker.sh
-set $wallpaper ~/.config/sway/wallpaper.png
+  $cursor "Catppuccin-Teal-Cursors"
+  $font_name "Input Sans Condensed 12"
+  $font_size 12
 
-# set $snaparea grim -g "$(slurp)" - | swappy -f - -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
-# set $snapfull grim -g "$(slurp -o)" - | swappy -f - -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_screen.png"
 
-set $snaparea grim -g "$(slurp)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
-set $snapfull grim -g "$(slurp -o)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
- 
-output eDP-1 bg $wallpaper fill
+  $mod Mod4
+  $term alacritty
+  $lock ~/.config/wofi/scripts/lock.sh
+  $waybar ~/.config/waybar/waybar.sh
+  $launcher ~/.config/wofi/scripts/launcher.sh
+  $window_picker ~/.config/wofi/scripts/window_picker.sh
+  $wallpaper ~/.config/sway/wallpaper.png
+
+
+  $snaparea grim -g "$(slurp)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+  $snapfull grim -g "$(slurp -o)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+}
+
+font pango:$font_name $font_size
+
+output * bg $wallpaper fill
+
+seat * {
+  hide_cursor when-typing enable
+  xcursor_theme $cursor
+}
+
+# exec_always ~/.local/bin/import-gsettings
 
 # window decorations
 # class			        border	    background	text        indicator   child_border
@@ -34,7 +51,6 @@ output eDP-1 bg $wallpaper fill
 # client.urgent           #A4B9EF     #575268     #EBDDAA     #DADAE8     #EBDDAA
 
 # General Settings
-font pango:JetBrainsMono Nerd Font 12
 default_border pixel 2
 default_floating_border normal
 hide_edge_borders smart
@@ -127,7 +143,6 @@ bindsym $mod+n mode "$mode_vim"
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 
-
 # Idle configuration
 exec swayidle -w \
 	timeout 600 'swaylock -f' \
@@ -172,7 +187,6 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 bindsym XF86MonBrightnessUp exec light -A 10 && notify-send "󰃞 Light" "Brightness: $(light)%"
 bindsym XF86MonBrightnessDown exec light -U 10 && notify-send "󰃞 Light" "Brightness: $(light)%"
-
 
 input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
   dwt enabled
