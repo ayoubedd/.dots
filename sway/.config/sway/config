@@ -4,6 +4,7 @@ output eDP-1 scale 2
 exec_always {
   mako
   kanshi
+  import-gsettings
 }
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -15,7 +16,7 @@ set {
   $down j
 
   $cursor "Catppuccin-Teal-Cursors"
-  $font_name "Input Sans Condensed 12"
+  $font_name "Noto Sans 12"
   $font_size 12
 
 
@@ -41,7 +42,6 @@ seat * {
   xcursor_theme $cursor
 }
 
-# exec_always ~/.local/bin/import-gsettings
 
 # window decorations
 # class			        border	    background	text        indicator   child_border
