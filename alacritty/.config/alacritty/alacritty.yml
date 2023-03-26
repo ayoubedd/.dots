@@ -221,7 +221,11 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
+
 #######################################
+#
 ##      START OF COLOR SCHEMES       ##
 #######################################
 schemes:
@@ -610,7 +614,8 @@ schemes:
 # *SolarizedDark
 # *TomorrowNight
 
-colors: *Carbon
+        # colors: *Carbon
+
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
