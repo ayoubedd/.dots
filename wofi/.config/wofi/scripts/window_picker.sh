@@ -1,10 +1,15 @@
 #!/bin/bash
 
 # Get available windows
-windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -e "[0-9]* ."  )
+windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -E "[0-9]+"  )
 
 # Select window with rofi
-selected=$(echo "$windows" | wofi -n -dmenu -i | awk '{print $1}')
+selected=$(echo "$windows" | wofi -dip "Window" | awk '{print $1}')
+
+if [ "$selected" == "" ]
+then
+	exit 1
+fi
 
 # Tell sway to focus said window
 swaymsg [con_id="$selected"] focus

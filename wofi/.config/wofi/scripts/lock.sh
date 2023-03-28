@@ -2,7 +2,7 @@
 
 entries="Lock,Logout,Suspend,Reboot,Shutdown"
 
-selected=$(echo $entries | tr ',' '\n' | wofi -n -dmenu -p "Lock" | awk '{print tolower($1)}')
+selected=$(echo $entries | tr ',' '\n' | wofi -d -p "Action" | awk '{print tolower($1)}')
 
 case $selected in
   lock)
