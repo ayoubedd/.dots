@@ -48,6 +48,9 @@ for_window [app_id="blueman-manager"] resize set 700 500
 for_window [app_id="thunar"] floating enable
 for_window [app_id="thunar"] resize set 1000 800
 
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol"] resize set 700 500
+
 # window decorations
 # class			        border	    background	text        indicator   child_border
 # client.focused          #A4B9EF     #332E41     #E5B4E2     #DADAE8     #A4B9EF
