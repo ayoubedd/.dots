@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$(pgrep wofi)" ]
+then
+	exit 1
+fi
+
 # Get available windows
 windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -E "[0-9]+"  )
 
