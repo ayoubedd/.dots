@@ -16,7 +16,7 @@
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": false,
+    "all-outputs": true,
     "format": "{icon}",
     "persistent_workspaces": {
       "1": [],
