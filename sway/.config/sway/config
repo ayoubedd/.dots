@@ -29,8 +29,8 @@ set {
   $wallpaper ~/.config/sway/wallpaper.png
 
 
-  $snaparea grim -g "$(slurp)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
-  $snapfull grim -g "$(slurp -o)" -o "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png"
+  $snaparea grim -g "$(slurp)" - | tee "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png" | wl-copy -t 'image/png'
+  $snapfull grim -g "$(slurp -o)" - | tee "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png" | wl-copy -t 'image/png'
 }
 
 font pango:$font_name $font_size
