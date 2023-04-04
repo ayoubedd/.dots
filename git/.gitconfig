@@ -5,17 +5,12 @@
 [init]
   defaultBranch = master
 
-[includeIf "gitdir:~/Code/0rb1t/"]
-  path = .gitconfig.orbit
-
-[includeIf "gitdir:~/Code/ayoub/"]
+[include]
   path = .gitconfig.ayoub
 
-[includeIf "gitdir:~/Code/42/"]
+[includeIf "gitdir:~/code/orbit/"]
+  path = .gitconfig.orbit
+
+[includeIf "gitdir:~/code/42/"]
   path = .gitconfig.42
 
-[alias]
-  st = status
-  lg = log --oneline
-  df = diff
-  ci = commit -m
