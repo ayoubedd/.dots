@@ -150,10 +150,12 @@ bindsym $mod+n mode "$mode_vim"
 # Default workspaces for common programs
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
+assign [class="discord"] 3
+assign [class="qBittorrent"] 4
 
 # Idle configuration
 exec swayidle -w \
-	timeout 600 'swaylock -f' \
+	timeout 600 'swaylock -f -c 000000' \
 	timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f'
 
@@ -190,11 +192,11 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Brightness controls
-bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
-bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-bindsym XF86MonBrightnessUp exec light -A 10 && notify-send "󰃞 Light" "Brightness: $(light)%"
-bindsym XF86MonBrightnessDown exec light -U 10 && notify-send "󰃞 Light" "Brightness: $(light)%"
+bindsym XF86MonBrightnessUp exec light -A 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
+bindsym XF86MonBrightnessDown exec light -U 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
 
 input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
   dwt enabled
