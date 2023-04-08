@@ -16,7 +16,7 @@ PACKAGES=(base-devel zsh rustup go \
   stow gdb nasm ncdu lf alacritty vim \
   git python python-pip tree tmux docker \
   docker-compose downgrade zip unzip sway \
-  paru greetd grim wtype slurp swappy swaylock \
+  paru greetd grim wtype slurp swappy swaylock-effects \
   kanshi curl wget axel wl-clipboard swayidle \
   mako thunar papirus-icon-theme blueman \
   swaybg waybar wofi light zathura zathura-pdf-mupdf \
