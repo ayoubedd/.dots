@@ -155,9 +155,10 @@ assign [class="qBittorrent"] 4
 
 # Idle configuration
 exec swayidle -w \
-	timeout 600 'swaylock -f -c 000000' \
-	timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f'
+	timeout 600 'swaylock -f' \
+	timeout 1800 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f'
 
 
 # switch between present and previous workspace
