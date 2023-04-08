@@ -1,0 +1,65 @@
+# Move your focus around
+bindsym {
+  $mod+$left focus left
+  $mod+$down focus down
+  $mod+$up focus up
+  $mod+$right focus right
+}
+
+# Move the focused window with the same, but add Shift
+bindsym {
+  $mod+Shift+$left 	move 	left
+  $mod+Shift+$down 	move 	down
+  $mod+Shift+$up 		move 	up
+  $mod+Shift+$right 	move 	right
+}
+
+
+# Windows resize
+mode "mode_resize" {
+  bindsym {
+    $left resize shrink width 10px
+    $down resize grow height 10px
+    $up resize shrink height 10px
+    $right resize grow width 10px
+  }
+
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "mode_resize"
+
+
+
+# Snap mode
+mode "mode_snap" {
+  bindsym {
+    a mode default, exec $snaparea
+    f mode default, exec $snapfull
+  }
+
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+p mode "mode_snap"
+
+
+# Vim mode
+mode "mode_vim" {
+  bindsym {
+    h exec wtype -k left
+    j exec wtype -k down
+    k exec wtype -k up
+    l exec wtype -k right
+    0 exec wtype -k home
+    dollar exec wtype -k end
+    Ctrl+u exec wtype -k pageup
+    Ctrl+d exec wtype -k pagedown
+  }
+
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+n mode "mode_vim"
+
+# vi: ft=swayconfig

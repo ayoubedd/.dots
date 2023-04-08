@@ -1,0 +1,16 @@
+# App rules
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="blueman-manager"] resize set 700 500
+
+for_window [app_id="thunar"] floating enable
+for_window [app_id="thunar"] resize set 1000 800
+
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol"] resize set 700 500
+
+assign [app_id="^Alacritty$"] 1
+assign [app_id="^brave-browser$"] 2
+assign [class="discord"] 3
+assign [class="qBittorrent"] 4
+
+# vi: ft=swayconfig

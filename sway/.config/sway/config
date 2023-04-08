@@ -7,7 +7,10 @@ exec_always {
   import-gsettings
 }
 
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# Waybar
+bar {
+  swaybar_command waybar
+}
 
 set {
   $left h
@@ -23,7 +26,6 @@ set {
   $mod Mod4
   $term alacritty
   $lock ~/.config/wofi/scripts/lock.sh
-  $waybar ~/.config/waybar/waybar.sh
   $launcher ~/.config/wofi/scripts/launcher.sh
   $window_picker ~/.config/wofi/scripts/window_picker.sh
   $wallpaper ~/.config/sway/wallpaper.png
@@ -33,172 +35,29 @@ set {
   $snapfull grim -g "$(slurp -o)" - | tee "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png" | wl-copy -t 'image/png'
 }
 
+# General Settings
 font pango:$font_name $font_size
-
+default_floating_border normal
 output * bg $wallpaper fill
+hide_edge_borders smart
+default_border pixel 2
+smart_gaps off
+gaps inner 5
 
+# Cursor
 seat * {
   hide_cursor when-typing enable
   xcursor_theme $cursor
 }
 
-for_window [app_id="blueman-manager"] floating enable
-for_window [app_id="blueman-manager"] resize set 700 500
-
-for_window [app_id="thunar"] floating enable
-for_window [app_id="thunar"] resize set 1000 800
-
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="pavucontrol"] resize set 700 500
-
-# window decorations
-# class			        border	    background	text        indicator   child_border
-# client.focused          #A4B9EF     #332E41     #E5B4E2     #DADAE8     #A4B9EF
-# client.focused_inactive #A4B9EF     #332E41     #E5B4E2     #DADAE8     #A4B9EF
-# client.unfocused        #A4B9EF     #1E1E28     #DADAE8     #DADAE8     #575268
-# client.urgent           #A4B9EF     #575268     #EBDDAA     #DADAE8     #EBDDAA
-
-# General Settings
-default_border pixel 2
-default_floating_border normal
-hide_edge_borders smart
-
-smart_gaps off
-gaps inner 5
-
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-
-bindsym $mod+Shift+1 move container to workspace number 1, workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2, workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3, workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4, workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5, workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6, workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7, workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8, workspace number 8
-
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# Move the focused window with the same, but add Shift
-bindsym 	$mod+Shift+$left 	move 	left
-bindsym 	$mod+Shift+$down 	move 	down
-bindsym 	$mod+Shift+$up 		move 	up
-bindsym 	$mod+Shift+$right 	move 	right
-
-
-mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-
-mode "$mode_snap" {
-  bindsym a mode default, exec $snaparea
-  bindsym f mode default, exec $snapfull
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym Space mode "default"
-}
-
-# Super+P is the main bind used, but of course we want PrintScr to work as well.
-bindsym $mod+p mode "$mode_snap"
-bindsym Print mode "$mode_snap"
-
-
-mode "$mode_vim" {
-  bindsym {
-    h exec wtype -k left
-    j exec wtype -k down
-    k exec wtype -k up
-    l exec wtype -k right
-    0 exec wtype -k home
-    dollar exec wtype -k end
-    Ctrl+u exec wtype -k pageup
-    Ctrl+d exec wtype -k pagedown
-  }
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym Space mode "default"
-}
-
-bindsym $mod+n mode "$mode_vim"
-
-# Switch the current container between different layout styles
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
-
-# Default workspaces for common programs
-assign [app_id="^Alacritty$"] 1
-assign [app_id="^brave-browser$"] 2
-assign [class="discord"] 3
-assign [class="qBittorrent"] 4
-
 # Idle configuration
 exec swayidle -w \
-	timeout 600 'swaylock -f' \
-	timeout 1800 'swaymsg "output * dpms off"' \
+	timeout 300 'swaylock -f' \
+	timeout 600 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f'
 
-
-# switch between present and previous workspace
-bindsym 	$mod+Tab 	workspace 	back_and_forth
-
-
-# You can "split" the current object of your focus 
-bindsym 	$mod+b 		splith
-bindsym 	$mod+v 		splitv
-
-
-# Toggle floating 
-bindsym 	$mod+s 		floating 	toggle
-
-
-# Keybinds
-bindsym $mod+Return exec $term
-bindsym $mod+c kill
-bindsym $mod+Shift+r reload
-bindsym $mod+f fullscreen
-bindsym $mod+x exec $lock
-bindsym $mod+w exec $window_picker
-bindsym $mod+space exec $launcher
-
-
-# Multimedia
-bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl get-default-sink) +5%
-bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl get-default-sink) -5%
-bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
-bindsym --locked XF86AudioPlay exec playerctl play-pause
-bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioPrev exec playerctl previous
-
-# Brightness controls
-bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 5
-bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 5
-
-bindsym XF86MonBrightnessUp exec light -A 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
-bindsym XF86MonBrightnessDown exec light -U 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
-
+# Touchpad
 input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
   dwt enabled
   tap enabled
@@ -206,6 +65,8 @@ input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
   middle_emulation enabled
 }
 
-bar {
-  swaybar_command waybar
-}
+include modes
+include app_rules
+include keybinds
+
+# vi: ft=swayconfig
