@@ -14,6 +14,7 @@ for_window [app_id="Floating_Alacritty"] resize set 900 600
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 assign [class="discord"] 3
-assign [class="qBittorrent"] 4
+assign [app_id="Spotify_Player"] 4
+assign [class="qBittorrent"] 5
 
 # vi: ft=swayconfig
