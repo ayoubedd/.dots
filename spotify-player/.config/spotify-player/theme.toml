@@ -1,0 +1,36 @@
+# Catppuccin themes for Spotify-player
+
+[[themes]]
+name = "Catppuccin-mocha"
+[themes.palette]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+black = "#1E1E2E"
+blue = "#89B4FA"
+cyan = "#89DCEB"
+green = "#A6E3A1"
+magenta = "#CBA6F7"
+red = "#F38BA8"
+white = "#CDD6F4"
+yellow = "#F9E2AF"
+bright_black = "#1E1E2E"
+bright_blue = "#89B4FA"
+bright_cyan = "#89DCEB"
+bright_green = "#A6E3A1"
+bright_magenta = "#CBA6F7"
+bright_red = "#F38BA8"
+bright_white = "#CDD6F4"
+bright_yellow = "#F9E2AF"
+selection_background = "#313244"
+selection_foreground = "#CDD6F4"
+
+[themes.component_style]
+block_title = { fg = "Magenta"  }
+playback_track = { fg = "Cyan", modifiers = ["Bold"] }
+playback_album = { fg = "Yellow" }
+playback_metadata = { fg = "Blue" }
+playback_progress_bar = { bg = "Black", fg = "Green" }
+current_playing = { fg = "Green", modifiers = ["Bold"] }
+page_desc = { fg = "Cyan", modifiers = ["Bold"] }
+table_header = { fg = "Blue" }
+
