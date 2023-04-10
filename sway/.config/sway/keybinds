@@ -4,6 +4,8 @@ bindsym $mod+Shift+f exec exec alacritty --class Floating_Alacritty -e 'lf'
 bindsym $mod+Shift+e exec exec alacritty --class Floating_Alacritty -e '/home/orbit/.local/bin/lvim'
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+b exec brave
+bindsym $mod+Alt+l exec swaylock -f
+bindsym $mod+m exec wofi-emoji
 
 # Move your focus around
 bindsym {
