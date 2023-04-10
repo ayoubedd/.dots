@@ -12,9 +12,9 @@ DIRS=(Downloads Pictures/{Screenshots,Personal} \
   code/{ayoub,orbit})
 
 # A list of packges to be installed
-PACKAGES=(base-devel zsh rustup go \
+PACKAGES=(base-devel zsh rustup go bat \
   stow gdb nasm ncdu lf alacritty vim \
-  git python python-pip tree tmux docker \
+  git python python-pip tree tmux docker btop \
   docker-compose downgrade zip unzip sway \
   paru greetd greetd-tuigreet grim wtype slurp \
   kanshi curl wget axel wl-clipboard swayidle \
