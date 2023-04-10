@@ -1,3 +1,10 @@
+# Apps
+bindsym $mod+Shift+Return exec alacritty --class Floating_Alacritty
+bindsym $mod+Shift+f exec exec alacritty --class Floating_Alacritty -e 'lf'
+bindsym $mod+Shift+e exec exec alacritty --class Floating_Alacritty -e '/home/orbit/.local/bin/lvim'
+bindsym $mod+Shift+d exec discord
+bindsym $mod+Shift+b exec brave
+
 # Switch to workspace
 bindsym {
   $mod+1 workspace number 1

@@ -8,6 +8,9 @@ for_window [app_id="thunar"] resize set 1000 800
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="pavucontrol"] resize set 700 500
 
+for_window [app_id="Floating_Alacritty"] floating enable
+for_window [app_id="Floating_Alacritty"] resize set 900 600
+
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 assign [class="discord"] 3
