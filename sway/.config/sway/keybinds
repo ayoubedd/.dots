@@ -5,6 +5,22 @@ bindsym $mod+Shift+e exec exec alacritty --class Floating_Alacritty -e '/home/or
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+b exec brave
 
+# Move your focus around
+bindsym {
+  $mod+$left focus left
+  $mod+$down focus down
+  $mod+$up focus up
+  $mod+$right focus right
+}
+
+# Move the focused window with the same, but add Shift
+bindsym {
+  $mod+Shift+$left 	move 	left
+  $mod+Shift+$down 	move 	down
+  $mod+Shift+$up 		move 	up
+  $mod+Shift+$right 	move 	right
+}
+
 # Switch to workspace
 bindsym {
   $mod+1 workspace number 1
