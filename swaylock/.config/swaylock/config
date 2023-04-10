@@ -1,27 +1,25 @@
-disable-caps-lock-text
 ignore-empty-password
-font=Ubuntu
-#grace=60
+font=Noto Sans
+grace=30
 
-screenshots
+# screenshots
 image=/home/orbit/.config/sway/wallpaper.png
-
 
 clock
 timestr=%R
 datestr=%a, %e of %B
 
 effect-blur=20x2
-effect-scale=0.3
+effect-scale=1
 
 indicator
 indicator-radius=150
 indicator-thickness=10
-#indicator-caps-lock
+# indicator-caps-lock
 
 key-hl-color=313244
 
-separator-color=00000000
+separator-color=0000000
 
 inside-color=181825
 inside-clear-color=ffd20400
