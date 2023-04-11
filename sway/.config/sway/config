@@ -27,9 +27,9 @@ set {
 
   $mod Mod4
   $term alacritty
-  $lock ~/.config/wofi/scripts/lock.sh
-  $launcher ~/.config/wofi/scripts/launcher.sh
-  $window_picker ~/.config/wofi/scripts/window_picker.sh
+  $lock ~/.local/bin/sway_action
+  $launcher ~/.local/bin/app_launcher
+  $window_picker ~/.local/bin/window_picker
   $wallpaper ~/.config/sway/wallpaper.png
 
 
