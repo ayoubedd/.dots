@@ -17,7 +17,7 @@ PACKAGES=(base-devel zsh rustup go bat \
   git python python-pip tree tmux docker btop \
   docker-compose downgrade zip unzip sway playerctl \
   paru greetd greetd-tuigreet grim wtype slurp \
-  kanshi curl wget axel wl-clipboard swayidle \
+  kanshi curl wget axel wl-clipboard swayidle git-delta \
   mako thunar papirus-icon-theme blueman swappy \
   swaybg waybar wofi light zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
