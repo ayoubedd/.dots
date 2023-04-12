@@ -15,13 +15,13 @@ DIRS=(Downloads Pictures/{Screenshots,Personal} \
 PACKAGES=(base-devel zsh rustup go bat \
   stow gdb nasm ncdu lf alacritty vim \
   git python python-pip tree tmux docker btop \
-  docker-compose downgrade zip unzip sway \
+  docker-compose downgrade zip unzip sway playerctl \
   paru greetd greetd-tuigreet grim wtype slurp \
   kanshi curl wget axel wl-clipboard swayidle \
-  mako thunar papirus-icon-theme blueman swappy\
+  mako thunar papirus-icon-theme blueman swappy \
   swaybg waybar wofi light zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
-  papirus-icon-theme powertop ttf-roboto brave \
+  papirus-icon-theme powertop ttf-roboto brave clipman \
   xdg-desktop-portal xdg-desktop-portal-wlr)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha \
