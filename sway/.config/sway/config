@@ -8,7 +8,7 @@ exec_always {
   wl-paste -t text --watch clipman store
 }
 
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK GTK_THEME QT_QPA_PLATFORM GDK_BACKEND
 
 # Waybar
 bar {
@@ -38,14 +38,12 @@ set {
 }
 
 # General Settings
-input type:keyboard xkb_capslock disabled
-input type:keyboard xkb_numlock enabled
 font pango:$font_name $font_size
 default_floating_border normal
 output * bg $wallpaper fill
 hide_edge_borders smart
 default_border pixel 2
-# xwayland disable
+xwayland disable
 smart_gaps off
 gaps inner 5
 
@@ -63,12 +61,18 @@ exec swayidle -w \
   before-sleep 'swaylock -f' \
   before-sleep 'playerctl pause'
 
-# Touchpad
+# Input
 input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
   dwt enabled
   tap enabled
   natural_scroll enabled
   middle_emulation enabled
+}
+input type:keyboard  {
+  xkb_capslock disabled
+  xkb_numlock enabled
+  repeat_delay 300
+  repeat_rate 30
 }
 
 include modes
