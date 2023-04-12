@@ -5,6 +5,7 @@ exec_always {
   mako
   kanshi
   import-gsettings
+  wl-paste -t text --watch clipman store
 }
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -24,7 +25,6 @@ set {
   $font_name "Noto Sans 12"
   $font_size 12
 
-
   $mod Mod4
   $term alacritty
   $lock ~/.local/bin/sway_action
@@ -38,11 +38,14 @@ set {
 }
 
 # General Settings
+input type:keyboard xkb_capslock disabled
+input type:keyboard xkb_numlock enabled
 font pango:$font_name $font_size
 default_floating_border normal
 output * bg $wallpaper fill
 hide_edge_borders smart
 default_border pixel 2
+# xwayland disable
 smart_gaps off
 gaps inner 5
 
@@ -57,7 +60,8 @@ exec swayidle -w \
 	timeout 300 'swaylock -f' \
 	timeout 600 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f'
+  before-sleep 'swaylock -f' \
+  before-sleep 'playerctl pause'
 
 # Touchpad
 input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
