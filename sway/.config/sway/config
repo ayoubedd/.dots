@@ -43,7 +43,7 @@ default_floating_border normal
 output * bg $wallpaper fill
 hide_edge_borders smart
 default_border pixel 2
-xwayland disable
+# xwayland disable
 smart_gaps off
 gaps inner 5
 
@@ -55,7 +55,7 @@ seat * {
 
 # Idle configuration
 exec swayidle -w \
-	timeout 300 'swaylock -f' \
+	timeout 300 'swaylock -f --grace 30' \
 	timeout 600 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f' \

@@ -1,6 +1,8 @@
 ignore-empty-password
 font=Noto Sans
-grace=30
+font-size=50
+grace-no-mouse
+grace-no-touch
 
 # screenshots
 image=/home/orbit/.config/sway/wallpaper.png
