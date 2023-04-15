@@ -25,11 +25,11 @@
   defaultBranch = master
 
 [include]
-  path = .gitconfig.ayoub
+  path = gitconfig.ayoub
 
 [includeIf "gitdir:~/code/orbit/"]
-  path = .gitconfig.orbit
+  path = gitconfig.orbit
 
 [includeIf "gitdir:~/code/42/"]
-  path = .gitconfig.42
+  path = gitconfig.42
 
