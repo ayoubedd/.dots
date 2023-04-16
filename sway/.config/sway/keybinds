@@ -8,6 +8,8 @@ bindsym --no-repeat {
   $mod+Shift+b exec brave
   $mod+Alt+l exec swaylock -f
   $mod+m exec wofi-emoji
+  $mod+b exec /home/orbit/.local/bin/dmenu-bluetooth
+  $mod+c exec wl-color-picker clipboard
   $mod+Shift+v exec clipman pick --tool wofi -T'--prompt=Keyword -i'
   $mod+Alt+v exec clipman clear --all
   $mod+Return exec $term
