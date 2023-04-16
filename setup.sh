@@ -24,7 +24,7 @@ PACKAGES=(base-devel zsh rustup go bat \
   papirus-icon-theme powertop ttf-roboto brave clipman \
   xdg-desktop-portal xdg-desktop-portal-wlr)
 
-AUR_PACKAGES=(catppuccin-cursors-mocha \
+AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
   wofi-emoji-git spotify-player battop)
 
