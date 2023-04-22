@@ -1,5 +1,5 @@
 [core]
-  excludesfile = .gitignore
+  excludesfile = gitignore
   editor = lvim
   pager = delta
 
