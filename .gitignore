@@ -1,3 +1,4 @@
 # themes/
 lazy-lock.json
 *.log
+tmux/.config/tmux/plugins/
