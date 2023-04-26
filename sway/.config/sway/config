@@ -4,8 +4,8 @@ output eDP-1 scale 2
 exec_always {
   mako
   kanshi
-  import-gsettings
-  wl-paste -t text --watch clipman store
+  /home/orbit/.local/bin/import-gsettings
+  # wl-paste --watch clipman store
 }
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK GTK_THEME QT_QPA_PLATFORM GDK_BACKEND
