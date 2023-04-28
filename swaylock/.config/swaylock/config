@@ -1,6 +1,6 @@
 ignore-empty-password
 font=Noto Sans
-font-size=50
+# font-size=50
 grace-no-mouse
 grace-no-touch
 
