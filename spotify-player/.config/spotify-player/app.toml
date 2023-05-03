@@ -1,1 +1,14 @@
+name = "Spotify Cli"
+volume = 65
+bitrate = 320
+audio_cache = true
 theme = "Catppuccin-mocha"
+copy_command = { command = "wl-copy", args = ["-t", "text/plain"] }
+
+[[keymaps]]
+command = "NextTrack"
+key_sequence = "g n"
+[[keymaps]]
+command = "PreviousTrack"
+key_sequence = "g p"
+
