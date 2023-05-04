@@ -5,7 +5,7 @@ exec_always {
   mako
   kanshi
   /home/orbit/.local/bin/import-gsettings
-  # wl-paste --watch clipman store
+  wl-paste --watch clipman store
 }
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK GTK_THEME QT_QPA_PLATFORM GDK_BACKEND
@@ -62,12 +62,19 @@ exec swayidle -w \
   before-sleep 'playerctl pause'
 
 # Input
-input "1739:52823:SYNA8009:00_06CB:CE57_Touchpad" {
+input type:touchpad {
   dwt enabled
   tap enabled
   natural_scroll enabled
   middle_emulation enabled
+  pointer_accel 0.4
 }
+
+input type:mouse {
+  accel_profile "flat"
+  pointer_accel 0.1
+}
+
 input type:keyboard  {
   xkb_capslock disabled
   xkb_numlock enabled
