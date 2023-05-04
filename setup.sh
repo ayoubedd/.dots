@@ -13,15 +13,15 @@ DIRS=(Downloads Pictures/{Screenshots,Personal} \
 
 # A list of packges to be installed
 PACKAGES=(base-devel zsh rustup go bat \
-  stow gdb nasm ncdu lf alacritty vim \
+  stow gdb nasm lf alacritty vim \
   git python python-pip tree tmux docker btop \
   docker-compose downgrade zip unzip sway playerctl \
-  paru greetd greetd-tuigreet grim wtype slurp \
+  paru greetd greetd-tuigreet grim wtype slurp glow \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
-  mako thunar papirus-icon-theme blueman swappy \
+  mako papirus-icon-theme blueman \
   swaybg waybar wofi light zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
-  papirus-icon-theme powertop ttf-roboto brave clipman \
+  papirus-icon-theme ttf-roboto clipman \
   xdg-desktop-portal xdg-desktop-portal-wlr)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
