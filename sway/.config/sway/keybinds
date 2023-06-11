@@ -79,7 +79,7 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Brightness controls
-bindsym --locked XF86MonBrightnessUp exec light -A 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
-bindsym --locked XF86MonBrightnessDown exec light -U 5 && notify-send "󰃞 Light" "Brightness: $(light)%"
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5% && notify-send "Light" "Brightness: $(light)%"
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send "Light" "Brightness: $(light)%"
 
 # vi: ft=swayconfig

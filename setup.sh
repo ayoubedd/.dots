@@ -19,7 +19,7 @@ PACKAGES=(base-devel zsh rustup go bat \
   paru greetd greetd-tuigreet grim wtype slurp glow \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
   mako papirus-icon-theme blueman \
-  swaybg waybar wofi light zathura zathura-pdf-mupdf \
+  swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto clipman \
   xdg-desktop-portal xdg-desktop-portal-wlr)
