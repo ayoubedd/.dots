@@ -22,7 +22,7 @@ PACKAGES=(base-devel zsh rustup go bat \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto clipman \
-  xdg-desktop-portal xdg-desktop-portal-wlr)
+  xdg-desktop-portal xdg-desktop-portal-wlr procps-ng)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
