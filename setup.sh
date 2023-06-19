@@ -13,12 +13,12 @@ DIRS=(Downloads Pictures/{Screenshots,Personal} \
 
 # A list of packges to be installed
 PACKAGES=(base-devel zsh rustup go bat \
-  stow gdb nasm lf alacritty vim \
+  stow gdb nasm lf alacritty vim exa \
   git python python-pip tree tmux docker btop \
   docker-compose downgrade zip unzip sway playerctl \
   paru greetd greetd-tuigreet grim wtype slurp glow \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
-  mako papirus-icon-theme blueman \
+  mako papirus-icon-theme blueman spotifyd \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto clipman \
@@ -26,7 +26,7 @@ PACKAGES=(base-devel zsh rustup go bat \
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git spotify-player battop)
+  wofi-emoji-git spotify-player battop spotify-tui)
 
 if [[ "$USER" == "root" ]]
 then
