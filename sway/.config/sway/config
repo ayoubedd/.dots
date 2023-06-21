@@ -4,11 +4,12 @@ output eDP-1 scale 2
 exec_always {
   mako
   kanshi
-  /home/orbit/.local/bin/import-gsettings
   wl-paste --watch clipman store
 }
 
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK GTK_THEME QT_QPA_PLATFORM GDK_BACKEND
+exec ~/.local/bin/import-gsettings
+exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE GDK_BACKEND QT_QPA_PLATFORM GTK_THEME VDPAU_DRIVER MOZ_ENABLE_WAYLAND
+
 
 # Waybar
 bar {
