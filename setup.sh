@@ -21,12 +21,12 @@ PACKAGES=(base-devel zsh rustup go bat \
   mako papirus-icon-theme blueman spotifyd \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
-  papirus-icon-theme ttf-roboto clipman \
+  papirus-icon-theme ttf-roboto cliphist \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git spotify-player battop spotify-tui)
+  wofi-emoji-git battop spotify-tui)
 
 if [[ "$USER" == "root" ]]
 then
