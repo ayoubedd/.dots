@@ -5,11 +5,11 @@ bindsym --no-repeat {
   $mod+Shift+s exec exec alacritty --class Floating_Alacritty --title 'Spotify' -e 'spt'
   $mod+Shift+e exec exec alacritty --class Floating_Alacritty -e '/home/orbit/.local/bin/lvim'
   $mod+Alt+l exec swaylock -f
-  $mod+m exec wofi-emoji
+  $mod+m exec wofi-emoji | wl-copy
   $mod+Shift+b exec ~/.local/bin/dmenu-bluetooth
-  $mod+c exec wl-color-picker clipboard
-  $mod+Shift+v exec clipman pick --tool wofi -T'--prompt=Keyword -i'
-  $mod+Alt+v exec clipman clear --all
+  $mod+Shift+c exec wl-color-picker clipboard
+  $mod+Shift+v exec cliphist list | wofi -d | cliphist decode | wl-copy
+  $mod+Alt+v exec cliphist wipe
   $mod+Return exec $term
   $mod+x exec $lock
   $mod+w exec $window_picker

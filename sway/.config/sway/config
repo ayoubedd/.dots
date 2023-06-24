@@ -1,21 +1,19 @@
-output eDP-1 scale 2
-
 # Background apps
 exec_always {
   mako
   kanshi
-  wl-paste --watch clipman store
+  wl-paste --watch cliphist -max-items 100 store
 }
 
 exec ~/.local/bin/import-gsettings
-exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE GDK_BACKEND QT_QPA_PLATFORM GTK_THEME VDPAU_DRIVER MOZ_ENABLE_WAYLAND
-
+exec dbus-update-activation-environment --systemd --all
 
 # Waybar
 bar {
   swaybar_command waybar
 }
 
+# Global variables
 set {
   $left h
   $right l
@@ -31,11 +29,10 @@ set {
   $lock ~/.local/bin/sway_action
   $launcher ~/.local/bin/app_launcher
   $window_picker ~/.local/bin/window_picker
-  $wallpaper ~/.config/sway/wallpaper.png
+  $wallpaper ~/Pictures/wallpapers/wallpaper.jpg
 
-
-  $snaparea grim -g "$(slurp)" - | tee "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png" | wl-copy -t 'image/png'
-  $snapfull grim -g "$(slurp -o)" - | tee "$HOME/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png" | wl-copy -t 'image/png'
+  $snaparea grim -g "$(slurp)" - | tee "~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png" | wl-copy -t 'image/png'
+  $snapfull grim -g "$(slurp -o)" - | tee "~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png" | wl-copy -t 'image/png'
 }
 
 # General Settings
@@ -44,7 +41,7 @@ default_floating_border normal
 output * bg $wallpaper fill
 hide_edge_borders smart
 default_border pixel 2
-# xwayland disable
+xwayland disable
 smart_gaps off
 gaps inner 5
 
@@ -56,33 +53,12 @@ seat * {
 
 # Idle configuration
 exec swayidle -w \
-	timeout 300 'swaylock -f --grace 30' \
-	timeout 600 'swaymsg "output * dpms off"' \
+	timeout 300 'swaylock -f --grace 15' \
+	timeout 400 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f' \
-  before-sleep 'playerctl pause'
+  before-sleep 'swaylock -f'
 
-# Input
-input type:touchpad {
-  dwt enabled
-  tap enabled
-  natural_scroll enabled
-  middle_emulation enabled
-  pointer_accel 0.4
-}
-
-input type:mouse {
-  accel_profile "flat"
-  pointer_accel 0.1
-}
-
-input type:keyboard  {
-  xkb_capslock disabled
-  xkb_numlock enabled
-  repeat_delay 300
-  repeat_rate 30
-}
-
+include input
 include modes
 include app_rules
 include keybinds
