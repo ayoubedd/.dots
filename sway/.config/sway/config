@@ -11,7 +11,7 @@ exec_always {
   wl-paste --watch cliphist -max-items 100 store
 }
 
-exec ~/.local/bin/import-gsettings
+# exec ~/.local/bin/import-gsettings
 exec dbus-update-activation-environment --systemd --all
 
 # Waybar
