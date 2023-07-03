@@ -7,9 +7,10 @@ DOTFILES_DIR="$HOME/.dotfiles"
 USER=$(whoami)
 
 # Some directories to created
-DIRS=(Downloads Pictures/{Screenshots,Personal} \
-  Videos/{Recordings,Movies} Documents \
-  code/{ayoub,orbit})
+DIRS=(
+  Pictures/{Screenshots,Personal} \
+  Videos/{Recordings,Movies} \
+  Code/{ayoub})
 
 # A list of packges to be installed
 PACKAGES=(base-devel zsh rustup go bat \
@@ -21,7 +22,7 @@ PACKAGES=(base-devel zsh rustup go bat \
   mako papirus-icon-theme blueman spotifyd \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
-  papirus-icon-theme ttf-roboto cliphist \
+  papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
@@ -34,15 +35,14 @@ then
     sleep 5
 fi
 
-echo '[INFO] Creating home directories.'
-for dir in ${DIRS[@]}
-do
-  echo "[INFO] Creating => \"~/$dir/\""
-  mkdir -p "$HOME/$dir/"
-done
+echo '[INFO] Performing system update.'
+sudo pacman --needed -Syyu
 
 echo '[INFO] Installing system packages.'
-sudo pacman --needed -Sy ${PACKAGES[@]}
+sudo pacman --needed -S ${PACKAGES[@]}
+
+echo '[INFO] Insalling AUR packages.'
+paru --needed -S ${AUR_PACKAGES[@]}
 
 echo '[INFO] Cloning .dotfiles repo.'
 if [ -d "$DOTFILES_DIR" ]
@@ -63,13 +63,12 @@ cd "$DOTFILES_DIR"
 echo '[INFO] Stowing your config files.'
 stow -vSt ~/ $(find . -maxdepth 1 -type d -not -path './.git' -not -path . | tr -d './')
 
-# echo '[INFO] Symlinking zsh config'
-# setopt EXTENDED_GLOB
-# for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-#   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-# done
-
-echo '[INFO] Insalling AUR packages.'
-paru --needed -S ${AUR_PACKAGES[@]}
+echo '[INFO] Creating Home directories.'
+xdg-user-dirs-update
+for dir in ${DIRS[@]}
+do
+  echo "[INFO] Creating => \"~/$dir/\""
+  mkdir -p "$HOME/$dir/"
+done
 
 echo '[INFO] Done.'
