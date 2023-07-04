@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+set -eu
+
+export XDG_CURRENT_DESKTOP=sway # xdg-desktop-portal
+export XDG_SESSION_DESKTOP=sway # systemd
+export XDG_SESSION_TYPE=wayland # xdg/systemd
+export GDK_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland
+export GTK_THEME=Catppuccin-Mocha-Standard-Sapphire-Dark
+export VDPAU_DRIVER=va_gl
+export MOZ_ENABLE_WAYLAND=1
+
+#xdg-user-dirs-update
+
+exec sway
+#exec systemctl --wait --user start sway.service
+# systemd-run --quiet --unit=sway --user --wait sway
