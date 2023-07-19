@@ -14,12 +14,12 @@ DIRS=(
 
 # A list of packges to be installed
 PACKAGES=(base-devel zsh rustup go bat \
-  stow gdb nasm lf alacritty vim exa \
+  stow gdb nasm lf alacritty vim exa qt6-wayland qt5-wayland \
   git python python-pip tree tmux docker btop \
   docker-compose downgrade zip unzip sway playerctl \
   paru greetd greetd-tuigreet grim wtype slurp glow \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
-  mako papirus-icon-theme blueman spotifyd \
+  mako papirus-icon-theme blueman spotifyd qbittorrent \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
