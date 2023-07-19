@@ -41,6 +41,9 @@ sudo pacman --needed -Syyu
 echo '[INFO] Installing system packages.'
 sudo pacman --needed -S ${PACKAGES[@]}
 
+echo '[INFO] Installing rust toolchain'
+rustup default stable
+
 echo '[INFO] Insalling AUR packages.'
 paru --needed -S ${AUR_PACKAGES[@]}
 
@@ -70,5 +73,12 @@ do
   echo "[INFO] Creating => \"~/$dir/\""
   mkdir -p "$HOME/$dir/"
 done
+
+echo '[INFO] Installing volta and nodejs.'
+curl https://get.volta.sh | bash
+volta install node
+
+echo '[INFO] Installing tmux plugin manager'
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo '[INFO] Done.'
