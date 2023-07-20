@@ -81,4 +81,7 @@ volta install node
 echo '[INFO] Installing tmux plugin manager'
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echo '[INFO] Building bat themes cache'
+bat cache --build
+
 echo '[INFO] Done.'
