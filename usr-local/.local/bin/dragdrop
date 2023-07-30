@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+PATH=$(wofi --show dmenu -H 1 --xoffset=660 --yoffset=400 -p 'Path')
+
+/home/orbit/.cargo/bin/ripdrag -x  --content-width 200 --content-height 200 $HOME/$PATH
