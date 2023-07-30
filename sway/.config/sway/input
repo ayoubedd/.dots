@@ -17,6 +17,7 @@ input type:keyboard  {
   xkb_numlock enabled
   repeat_delay  300
   repeat_rate 30
+  xkb_layout us
 }
 
 # vi: ft=swayconfig
