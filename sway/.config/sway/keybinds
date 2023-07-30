@@ -8,12 +8,13 @@ bindsym --no-repeat {
   $mod+m exec wofi-emoji | wl-copy
   $mod+Shift+b exec ~/.local/bin/dmenu-bluetooth
   $mod+Shift+c exec wl-color-picker clipboard
-  $mod+Shift+v exec cliphist list | wofi -d | cliphist decode | wl-copy
+  $mod+Shift+v exec cliphist list | wofi -d | cliphist decode | wtype -s 600 -
   $mod+Alt+v exec cliphist wipe
   $mod+Return exec $term
   $mod+x exec $lock
   $mod+w exec $window_picker
   $mod+d exec $launcher
+  $mod+c exec ~/.local/bin/dragdrop
 }
 
 # Move your focus around
