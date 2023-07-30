@@ -15,9 +15,9 @@ case $selected in
   logout)
     swaymsg exit;;
   suspend)
-    exec systemctl suspend;;
+    exec systemd-run --user suspend;; # not working
   reboot)
-    exec systemctl reboot;;
+    exec systemd-run --user reboot;;
   shutdown)
-    exec systemctl poweroff -i;;
+    exec systemd-run --user poweroff;;
 esac
