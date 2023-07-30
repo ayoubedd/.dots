@@ -1,18 +1,24 @@
 output eDP-1 {
   scale 2
-  render_bit_depth 10
+  render_bit_depth 8
   adaptive_sync on
 } 
 
-# Background apps
-exec_always {
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
+
+default_orientation horizontal
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+
+exec {
   mako
   kanshi
   wl-paste --watch cliphist -max-items 100 store
 }
 
 # exec ~/.local/bin/import-gsettings
-exec dbus-update-activation-environment --systemd --all
 
 # Waybar
 bar {
@@ -27,7 +33,7 @@ set {
   $down j
 
   $cursor "Catppuccin-Teal-Cursors"
-  $font_name "Noto Sans 12"
+  $font_name "Noto Sans"
   $font_size 12
 
   $mod Mod4
