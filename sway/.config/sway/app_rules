@@ -10,10 +10,13 @@ for_window [app_id="pavucontrol"] resize set 700 500
 
 for_window [app_id="Floating_Alacritty"] floating enable
 for_window [app_id="Floating_Alacritty"] resize set 900 600
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+
 
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 assign [app_id="neovide"] 3
 assign [class="qBittorrent"] 5
+
 
 # vi: ft=swayconfig
