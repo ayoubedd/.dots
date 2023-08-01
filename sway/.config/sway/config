@@ -60,6 +60,7 @@ gaps inner 5
 # Cursor
 seat * {
   hide_cursor when-typing enable
+  hide_cursor 10000
   xcursor_theme $cursor
 }
 
