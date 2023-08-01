@@ -15,7 +15,7 @@ case $selected in
   logout)
     swaymsg exit;;
   suspend)
-    exec systemd-run --user suspend;; # not working
+    exec systemd-run --user systemctl suspend;;
   reboot)
     exec systemd-run --user reboot;;
   shutdown)
