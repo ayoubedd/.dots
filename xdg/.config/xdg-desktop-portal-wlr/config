@@ -1,0 +1,4 @@
+[screencast]
+max_fps=25
+chooser_type=simple
+chooser_cmd=slurp -f %o -or
