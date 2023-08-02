@@ -84,4 +84,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo '[INFO] Building bat themes cache'
 bat cache --build
 
+echo '[INFO] Creating symbolic links to default mime types'
+ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
+ln -sf ~/.config/mimeapps.list ~/.local/share/applications/defaults.list
+
 echo '[INFO] Done.'
