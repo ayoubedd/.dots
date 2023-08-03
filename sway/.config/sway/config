@@ -1,30 +1,3 @@
-output eDP-1 {
-  scale 2
-  render_bit_depth 8
-  adaptive_sync on
-} 
-
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
-
-default_orientation horizontal
-bindgesture swipe:3:right workspace prev
-bindgesture swipe:3:left workspace next
-
-exec {
-  mako
-  kanshi
-  wl-paste --watch cliphist -max-items 100 store
-}
-
-# exec ~/.local/bin/import-gsettings
-
-# Waybar
-bar {
-  swaybar_command waybar
-}
-
 # Global variables
 set {
   $left h
@@ -38,7 +11,7 @@ set {
 
   $mod Mod4
   $term alacritty
-  $lock ~/.local/bin/sway_action
+  $action ~/.local/bin/sway_action
   $launcher ~/.local/bin/app_launcher
   $window_picker ~/.local/bin/window_picker
   $wallpaper ~/Pictures/wallpapers/wallpaper.jpg
@@ -47,7 +20,26 @@ set {
   $snapfull grim -g "$(slurp -o)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png "| wl-copy -t 'image/png'
 }
 
+# Import theme colors
+include themes/catppuccin-mocha
+
+# Waybar
+bar {
+  swaybar_command waybar
+}
+
+# Daemons and dbus/systemd envs
+exec {
+  mako
+  kanshi
+  ~/.local/bin/import-gsettings
+  wl-paste --watch cliphist -max-items 100 store
+  systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+  dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+}
+
 # General Settings
+default_orientation horizontal
 font pango:$font_name $font_size
 default_floating_border normal
 output * bg $wallpaper fill
@@ -57,13 +49,6 @@ xwayland disable
 smart_gaps off
 gaps inner 5
 
-# Cursor
-seat * {
-  hide_cursor when-typing enable
-  hide_cursor 10000
-  xcursor_theme $cursor
-}
-
 # Idle configuration
 exec swayidle -w \
 	timeout 300 'swaylock -f --grace 15' \
@@ -71,6 +56,7 @@ exec swayidle -w \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f'
 
+include display
 include input
 include modes
 include app_rules

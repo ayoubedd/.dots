@@ -1,9 +1,13 @@
+# Gestures
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+
 # Apps
 bindsym --no-repeat {
-  $mod+Shift+Return exec alacritty --class Floating_Alacritty
-  $mod+Shift+f exec exec alacritty --class Floating_Alacritty -e 'lf'
-  $mod+Shift+s exec exec alacritty --class Floating_Alacritty --title 'Spotify' -e 'spt'
-  $mod+Shift+e exec exec alacritty --class Floating_Alacritty -e '/home/orbit/.local/bin/lvim'
+  $mod+Shift+Return exec alacritty --class floating-alacritty --title 'Floating Alacritty'
+  $mod+Shift+f exec exec alacritty --class floating-alacritty --title 'lf' -e 'lf'
+  $mod+Shift+s exec exec alacritty --class floating-alacritty --title 'Spotify' -e 'spt'
+  $mod+Shift+e exec exec alacritty --class floating-alacritty --title 'Lunarvim' -e '/home/orbit/.local/bin/lvim'
   $mod+Alt+l exec swaylock -f
   $mod+m exec wofi-emoji | wl-copy
   $mod+Shift+b exec ~/.local/bin/dmenu-bluetooth
@@ -11,7 +15,7 @@ bindsym --no-repeat {
   $mod+Shift+v exec cliphist list | wofi -d | cliphist decode | wtype -s 600 -
   $mod+Alt+v exec cliphist wipe
   $mod+Return exec $term
-  $mod+x exec $lock
+  $mod+x exec $action
   $mod+w exec $window_picker
   $mod+d exec $launcher
   $mod+c exec ~/.local/bin/dragdrop
@@ -26,7 +30,7 @@ bindsym --no-repeat {
 }
 
 # Move the focused window with the same, but add Shift
-bindsym {
+bindsym --no-repeat {
   $mod+Shift+$left 	move 	left
   $mod+Shift+$down 	move 	down
   $mod+Shift+$up 		move 	up

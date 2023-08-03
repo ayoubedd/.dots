@@ -1,22 +1,39 @@
 # App rules
-for_window [app_id="blueman-manager"] floating enable
-for_window [app_id="blueman-manager"] resize set 700 500
 
-for_window [app_id="thunar"] floating enable
-for_window [app_id="thunar"] resize set 1000 800
+for_window [app_id="blueman-manager"] {
+  floating enable
+  resize set 700 500
+}
 
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="pavucontrol"] resize set 700 500
+for_window [app_id="pavucontrol"] {
+  floating enable
+  resize set 700 500
+}
 
-for_window [app_id="Floating_Alacritty"] floating enable
-for_window [app_id="Floating_Alacritty"] resize set 900 600
+for_window [app_id="floating-alacritty"] {
+  floating enable
+  resize set 900 600
+}
+
+
+for_window [title="Picture[- ]in[- ][Pp]icture"] {
+  floating enable
+  resize set 400 250
+  sticky enable
+  move position 1500px 20px
+}
+
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox"] focus_on_window_activation urgent
 
+for_window [app_id="Windscribe"] floating enable
 
+# Apps default workspace
 assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 assign [app_id="neovide"] 3
-assign [class="qBittorrent"] 5
+assign [app_id="org.qbittorrent.qBittorrent"] 5
+
 
 
 # vi: ft=swayconfig
