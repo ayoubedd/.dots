@@ -6,7 +6,7 @@ then
 fi
 
 # Get available windows
-windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -E "[0-9]+"  )
+windows=$(swaymsg -t get_tree | jq -r '.nodes[1].nodes[] | .. | (.id|tostring) + " " + .name?' | grep -E "[0-9]+"  )
 
 # Select window with rofi
 selected=$(echo "$windows" | wofi -dip "Window" | awk '{print $1}')
