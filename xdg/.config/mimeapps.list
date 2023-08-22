@@ -180,3 +180,4 @@ text/x-makefile=lvim.desktop
 text/x-shellscript=lvim.desktop
 
 inode/x-empty=lvim.desktop
+application/json=lvim.desktop
