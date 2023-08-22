@@ -15,6 +15,15 @@ for_window [app_id="floating-alacritty"] {
   resize set 900 600
 }
 
+for_window [app_id="thunar"] {
+  floating enable
+  resize set 900 600
+}
+
+for_window [app_id="nm-connection-editor"] {
+  floating enable
+  resize set 900 600
+}
 
 for_window [title="Picture[- ]in[- ][Pp]icture"] {
   floating enable
@@ -33,7 +42,5 @@ assign [app_id="^Alacritty$"] 1
 assign [app_id="^brave-browser$"] 2
 assign [app_id="neovide"] 3
 assign [app_id="org.qbittorrent.qBittorrent"] 5
-
-
 
 # vi: ft=swayconfig
