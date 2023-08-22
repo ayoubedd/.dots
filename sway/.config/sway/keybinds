@@ -30,7 +30,7 @@ bindsym --no-repeat {
 }
 
 # Move the focused window with the same, but add Shift
-bindsym --no-repeat {
+bindsym {
   $mod+Shift+$left 	move 	left
   $mod+Shift+$down 	move 	down
   $mod+Shift+$up 		move 	up
