@@ -181,3 +181,4 @@ text/x-shellscript=lvim.desktop
 
 inode/x-empty=lvim.desktop
 application/json=lvim.desktop
+application/x-shellscript=lvim.desktop
