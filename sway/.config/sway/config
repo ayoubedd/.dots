@@ -33,6 +33,7 @@ exec {
   mako
   kanshi
   ~/.local/bin/import-gsettings
+  /usr/lib/xfce-polkit/xfce-polkit
   wl-paste --watch cliphist -max-items 100 store
   systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
   dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP

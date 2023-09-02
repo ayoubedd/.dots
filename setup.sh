@@ -28,7 +28,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv \
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git battop spotify-tui ripdrag-git)
+  wofi-emoji-git battop spotify-tui ripdrag-git xfce-polkit)
 
 if [[ "$USER" == "root" ]]
 then

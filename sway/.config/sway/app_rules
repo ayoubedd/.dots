@@ -36,6 +36,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="firefox"] focus_on_window_activation urgent
 
 for_window [app_id="Windscribe"] floating enable
+for_window [app_id="xfce-polkit"] floating enable
 
 # Apps default workspace
 assign [app_id="^Alacritty$"] 1
