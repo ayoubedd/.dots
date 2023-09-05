@@ -1,0 +1,84 @@
+# Main options
+set icons
+set period 1
+set relativenumber
+set number
+# set hidden!
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+
+set previewer '~/.config/lf/previewer'
+# source '~/.config/lf/opener'
+
+set dircounts
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set shellopts '-eu'
+set ifs "\n"
+set shell "bash"
+set ruler 'df:acc:progress:selection:filter:ind'
+set cursorpreviewfmt "\033[7m"
+
+%test $LF_LEVEL -eq 1 || >&2 printf "Warning: You're in a nested lf instance!"
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf -- "%s\n" $fx | sed 's|'"$HOME"'||'
+	printf "\t\033[1;33mRemove ? \033[37m[\033[32my\033[37m/\033[31mN\033[37m]\033[m "
+	read -r REPLY
+	case "$REPLY" in
+		[yY]) rm -rf -- $fx ;;
+	esac
+}}
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf -- "%s\n" $fx
+	printf "\t\033[1;34mExtract ? \033[37m[\033[32my\033[37m/\033[31mN\033[37m]\033[m "
+	read -r REPLY
+	case "$REPLY" in
+		[yY]) aunpack $fx ;;
+	esac
+}}
+
+cmd chmodx &{{
+	chmod u+x $fx
+	lf -remote "send $id reload"
+}}
+
+cmd chmodn &{{
+	chmod 644 $fx
+	lf -remote "send $id reload"
+}}
+
+# Movement
+map k up
+map j down
+# map l open
+# map l open
+map / search
+map gg top
+map G bottom
+map <c-p> half-up
+map <c-n> half-down
+
+map zh set hidden!
+map zt set info time
+
+# Renaming
+map r rename
+
+# Delete
+map x delete
+
+# Copy selected file names
+map gm moveto
+map gc copyto
+map gx extract
+
+map gfx chmodx
+map gfn chmodn
+map gfY $printf "%s" "$fx" | wl-copy
+map gfy $cat "$fx" | wl-copy
