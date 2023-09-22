@@ -46,7 +46,7 @@ hide_edge_borders smart
 default_border pixel 2
 #xwayland disable
 smart_gaps off
-gaps inner 5
+gaps inner 3
 
 # Idle configuration
 exec swayidle -w \
