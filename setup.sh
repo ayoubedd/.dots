@@ -13,6 +13,7 @@ DIRS=(
   Code \
   .config \
   .local/{bin,share}
+  .cache/zsh/
 )
 
 # A list of packges to be installed
