@@ -4,6 +4,7 @@ set -e
 
 TMP_FILE=$(mktemp)
 
+(
 cat <<EOL > $TMP_FILE
 gtk-theme=Catppuccin-Mocha-Standard-Blue-dark
 icon-theme=ePapirus-Dark
@@ -17,7 +18,8 @@ EOL
 
 awk -F '=' '/^[a-z]/ {
 print("gsettings set org.gnome.desktop.interface " $1 " " $2);
-}' $TMP_FILE
+}' $TMP_FILE 1>/dev/null
+)
 
 rm -rf $TMP_FILE
 
