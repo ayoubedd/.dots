@@ -8,32 +8,35 @@ USER=$(whoami)
 
 # Some directories to created
 DIRS=(
-  Pictures/{Screenshots,Personal} \
+  Pictures/{Screenshots,Personal,Wallpapers} \
   Videos/{Recordings,Movies} \
-  Code/{ayoub})
+  Code \
+  .config \
+  .local/{bin,share}
+)
 
 # A list of packges to be installed
-PACKAGES=(base-devel zsh rustup go bat mpv \
-  stow gdb nasm lf alacritty vim exa qt6-wayland qt5-wayland \
+PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
+  stow gdb nasm lf alacritty vim eza qt6-wayland qt5-wayland \
   git python python-pip tree tmux docker btop noto-fonts-cjk \
-  docker-compose downgrade zip unzip sway playerctl \
-  paru greetd greetd-tuigreet grim wtype slurp glow \
+  docker-compose downgrade zip unzip sway playerctl github-cli \
+  paru greetd greetd-tuigreet grim wtype slurp glow bear \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
   mako papirus-icon-theme blueman spotifyd qbittorrent \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
-  nm-connection-editor fx)
+  nm-connection-editor fx thermald)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git battop spotify-tui ripdrag-git xfce-polkit)
+  wofi-emoji-git battop spotify-tui ripdrag-git)
 
 if [[ "$USER" == "root" ]]
 then
     echo "[WARNING] Its not recommended to run this script as root."
-    sleep 5
+    exit 1
 fi
 
 echo '[INFO] Performing system update.'
@@ -59,24 +62,27 @@ then
     fi
     git pull
 else
-    git clone --recurse-submodules "$REPO_URL" "$DOTFILES_DIR"
+    git clone --recursive "$REPO_URL" "$DOTFILES_DIR"
 fi
 
-cd "$DOTFILES_DIR"
-
-echo '[INFO] Stowing your config files.'
-stow -vSt ~/ $(find . -maxdepth 1 -type d -not -path './.git' -not -path . | tr -d './')
-
 echo '[INFO] Creating Home directories.'
-xdg-user-dirs-update
 for dir in ${DIRS[@]}
 do
   echo "[INFO] Creating => \"~/$dir/\""
   mkdir -p "$HOME/$dir/"
 done
 
+cd "$DOTFILES_DIR"
+
+echo '[INFO] Stowing your config files.'
+stow -vSt ~/ $(cat ./stowables.txt)
+
+echo '[INFO] Updating xdg-user directories.'
+xdg-user-dirs-update
+
 echo '[INFO] Installing volta and nodejs.'
 curl https://get.volta.sh | bash
+source ~/.profile
 volta install node
 
 echo '[INFO] Installing tmux plugin manager'
@@ -89,4 +95,10 @@ echo '[INFO] Creating symbolic links to default mime types'
 ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
 ln -sf ~/.config/mimeapps.list ~/.local/share/applications/defaults.list
 
+echo '[INFO] Enabling system services'
+sudo systemctl enable --now greetd.service
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now thermald.service
+
 echo '[INFO] Done.'
+
