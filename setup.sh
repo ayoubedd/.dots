@@ -99,13 +99,14 @@ ln -sf ~/.config/mimeapps.list ~/.local/share/applications/defaults.list
 echo '[INFO] Copying wallpapers.'
 cp ./media/Wallpapers/{wallpaper.jpg,lockscreen.jpg} ~/Pictures/Wallpapers/
 
-echo '[INFO] Enabling system services'
+echo '[INFO] Enabling system services.'
 sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 
-echo '[INFO] Coying sway wrapper to /usr/local/bin'
-sudo cp ./scripts/sway-wrapper /usr/local/bin/
+echo '[INFO] Coying config/scripts to system.'
+sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
+sudo cp ./confs/greetd-config.toml /etc/greetd/config.toml
 
 echo '[INFO] Done.'
 
