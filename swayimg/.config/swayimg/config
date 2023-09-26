@@ -10,7 +10,7 @@ fullscreen = yes
 background = grid
 
 # Window background mode/color (none or RGB, e.g. #112233)
-window = none
+window = #000000
 
 # Show image info: format, size, EXIF, and current scale (yes/no)
 info = no
