@@ -104,5 +104,8 @@ sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 
+echo '[INFO] Coying sway wrapper to /usr/local/bin'
+sudo cp ./scripts/sway-wrapper /usr/local/bin/
+
 echo '[INFO] Done.'
 

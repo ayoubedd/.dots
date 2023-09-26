@@ -1,0 +1,22 @@
+#!/bin/sh
+
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_PLATFORM_PLUGIN=qt6ct
+export QT_PLATFORMTHEME=qt6ct
+
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_BACKEND=wayland
+
+export WLR_DRM_NO_MODIFIERS=1
+export XDG_CURRENT_DESKTOP=sway
+
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_WAYLAND_USE_VAAPI=1
+export MOZ_DISABLE_RDD_SANDBOX=1
+
+#export WLR_RENDERER=vulkan
+
+exec sway
