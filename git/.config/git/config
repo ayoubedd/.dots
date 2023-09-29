@@ -27,9 +27,5 @@
 [include]
   path = gitconfig.ayoub
 
-[includeIf "gitdir:~/code/orbit/"]
-  path = gitconfig.orbit
-
-[includeIf "gitdir:~/code/42/"]
-  path = gitconfig.42
-
+[includeIf "gitdir:~/Code/1337/"]
+  path = gitconfig.1337
