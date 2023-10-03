@@ -28,7 +28,8 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
-  nm-connection-editor fx thermald lazygit qemu-full)
+  nm-connection-editor fx thermald lazygit qemu-full \
+  xorg-xwayland)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
