@@ -105,9 +105,10 @@ sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 
-echo '[INFO] Coying config/scripts to system.'
+echo '[INFO] Copying configs/scripts to system.'
 sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
 sudo cp ./confs/greetd-config.toml /etc/greetd/config.toml
+sudo cp ./confs/udev/*.rules /etc/udev/rules.d/
 
 echo '[INFO] Adding user to various gropus.'
 sudo usermod -aG video,docker $USER

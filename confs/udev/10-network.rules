@@ -1,0 +1,1 @@
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="88:d8:2e:67:86:a8", NAME="wlan0"
