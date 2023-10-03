@@ -109,5 +109,8 @@ echo '[INFO] Coying config/scripts to system.'
 sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
 sudo cp ./confs/greetd-config.toml /etc/greetd/config.toml
 
+echo '[INFO] Adding user to various gropus.'
+sudo usermod -aG video,docker $USER
+
 echo '[INFO] Done.'
 
