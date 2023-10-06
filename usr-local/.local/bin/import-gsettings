@@ -6,7 +6,7 @@ TMP_FILE=$(mktemp)
 
 (
 cat <<EOL > $TMP_FILE
-gtk-theme=Catppuccin-Mocha-Standard-Blue-dark
+gtk-theme=Catppuccin-Mocha-Standard-Blue-Dark
 icon-theme=ePapirus-Dark
 color-scheme=prefer-dark
 cursor-theme=Catppuccin-Mocha-Dark-Cursors
