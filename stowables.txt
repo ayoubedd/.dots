@@ -9,7 +9,6 @@ lf
 mako
 mpv
 paru
-spotify-player
 sway
 swayimg
 swaylock

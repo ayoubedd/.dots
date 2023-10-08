@@ -23,7 +23,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   docker-compose downgrade zip unzip sway playerctl github-cli \
   paru greetd greetd-tuigreet grim wtype slurp glow bear \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
-  mako papirus-icon-theme blueman spotifyd qbittorrent \
+  mako papirus-icon-theme blueman qbittorrent \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
@@ -33,7 +33,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git battop spotify-tui ripdrag-git)
+  wofi-emoji-git battop ripdrag-git)
 
 if [[ "$USER" == "root" ]]
 then
