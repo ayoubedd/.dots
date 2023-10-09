@@ -40,7 +40,7 @@ for_window [app_id="xfce-polkit"] floating enable
 
 # Apps default workspace
 assign [app_id="^Alacritty$"] 1
-assign [app_id="^brave-browser$"] 2
+assign [app_id="firefox"] 2
 assign [app_id="neovide"] 3
 assign [app_id="org.qbittorrent.qBittorrent"] 5
 
