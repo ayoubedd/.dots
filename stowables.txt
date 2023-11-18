@@ -20,3 +20,4 @@ wofi
 xdg
 zathura
 zsh
+neovide
