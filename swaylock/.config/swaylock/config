@@ -1,7 +1,7 @@
 grace-no-mouse
 grace-no-touch
 
-ignore-empty-password
+# ignore-empty-password
 disable-caps-lock-text
 image=~/Pictures/Wallpapers/lockscreen.jpg
 font=Roboto
