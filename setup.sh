@@ -23,7 +23,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   docker-compose downgrade zip unzip sway playerctl github-cli \
   paru greetd greetd-tuigreet grim wtype slurp glow bear \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
-  mako papirus-icon-theme blueman qbittorrent \
+  mako papirus-icon-theme blueman qbittorrent fprintd \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
@@ -104,6 +104,8 @@ echo '[INFO] Enabling system services.'
 sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
+sudo systemctl enable --now fprintd.service
+
 
 echo '[INFO] Copying configs/scripts to system.'
 sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
