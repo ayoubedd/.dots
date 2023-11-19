@@ -35,6 +35,7 @@ exec {
   ~/.local/bin/import-gsettings
   wl-paste --watch cliphist -max-items 100 store
   dbus-update-activation-environment --systemd I3SOCK WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+  /usr/lib/xfce-polkit/xfce-polkit
 }
 
 # General Settings
