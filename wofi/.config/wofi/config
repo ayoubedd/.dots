@@ -1,4 +1,4 @@
-mode=drun,run
+mode=drun
 normal_window=false
 no_actions=true
 matching=contains
@@ -14,4 +14,3 @@ insensitive=true
 prompt=Search
 width=550
 hide_scroll=true
-# key_expand=Control_L-Return
