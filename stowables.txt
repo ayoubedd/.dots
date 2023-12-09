@@ -13,7 +13,6 @@ sway
 swayimg
 swaylock
 systemd
-tmux
 usr-local
 waybar
 wofi

@@ -19,7 +19,7 @@ DIRS=(
 # A list of packges to be installed
 PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   stow gdb nasm lf alacritty vim eza qt6-wayland qt5-wayland \
-  git python python-pip tree tmux docker btop noto-fonts-cjk \
+  git python python-pip tree docker btop noto-fonts-cjk \
   docker-compose downgrade zip unzip sway playerctl github-cli \
   paru greetd greetd-tuigreet grim wtype slurp glow bear \
   kanshi curl wget axel wl-clipboard swayidle git-delta \
@@ -88,9 +88,6 @@ echo '[INFO] Installing volta and nodejs.'
 curl https://get.volta.sh | bash
 source ~/.profile
 volta install node
-
-echo '[INFO] Installing tmux plugin manager'
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo '[INFO] Building bat themes cache'
 bat cache --build
