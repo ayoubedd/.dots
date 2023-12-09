@@ -6,4 +6,4 @@ then
 fi
 
 # Run
-wofi --show drun
+wofi
