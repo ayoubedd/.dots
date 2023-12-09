@@ -29,11 +29,13 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
   nm-connection-editor fx thermald lazygit qemu-full \
-  xorg-xwayland)
+  xorg-xwayland exiftool lynx perl-image-exiftool atool \
+  catdoc)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
-  wofi-emoji-git battop ripdrag-git pam-fprint-grosshack)
+  wofi-emoji-git battop ripdrag-git pam-fprint-grosshack \
+  ldm)
 
 if [[ "$USER" == "root" ]]
 then
