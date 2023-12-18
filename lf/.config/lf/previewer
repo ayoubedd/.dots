@@ -102,6 +102,9 @@ mime_preview() {
 	(application/zip,0 | application/x-7z-compressed,0 )
 		atool --list -- "$1"
 	;;
+	(application/x-tar,0)
+		tar tf "$1"
+	;;
 	(audio/*,[01])
 		exiftool -j "$1" | jq -C
 	;;
