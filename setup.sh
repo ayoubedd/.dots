@@ -30,7 +30,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
   nm-connection-editor fx thermald lazygit qemu-full \
   xorg-xwayland exiftool lynx perl-image-exiftool atool \
-  catdoc net-tools)
+  catdoc net-tools gnome-keyring ufw seahorse)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
@@ -104,6 +104,8 @@ sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 sudo systemctl enable --now fprintd.service
+sudo systemctl enable --now ufw.service
+sudo systemctl enable --now --user gnome-keyring-daemon.service
 
 
 echo '[INFO] Copying configs/scripts to system.'
