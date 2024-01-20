@@ -12,8 +12,9 @@ DIRS=(
   Videos/{Recordings,Movies} \
   Code \
   .config \
-  .local/{bin,share}
-  .cache/zsh/
+  .local/{bin,share} \
+  .cache/zsh/ \
+  .ssh/
 )
 
 # A list of packges to be installed

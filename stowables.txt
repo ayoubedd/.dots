@@ -20,3 +20,4 @@ xdg
 zathura
 zsh
 neovide
+ssh
