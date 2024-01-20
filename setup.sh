@@ -108,6 +108,10 @@ sudo systemctl enable --now fprintd.service
 sudo systemctl enable --now ufw.service
 sudo systemctl enable --now --user gnome-keyring-daemon.service
 
+echo '[INFO] Configuring ufw.'
+sudo ufw default deny
+sudo ufw enable
+sudo ufw reload
 
 echo '[INFO] Copying configs/scripts to system.'
 sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
