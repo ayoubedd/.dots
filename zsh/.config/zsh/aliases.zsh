@@ -26,3 +26,4 @@ alias fzf="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 # Tools
 alias makej="make -j `nproc`"
 alias cat=bat
+alias grep="grep --color=auto"
