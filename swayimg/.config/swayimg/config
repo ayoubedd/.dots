@@ -3,7 +3,7 @@
 [general]
 scale = optimal
 fullscreen = yes
-antialiasing = yes
+antialiasing = no
 transparency = #000000
 background = #000000
 slideshow = no
