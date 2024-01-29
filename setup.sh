@@ -106,7 +106,7 @@ sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 sudo systemctl enable --now fprintd.service
 sudo systemctl enable --now ufw.service
-sudo systemctl enable --now --user gnome-keyring-daemon.service
+systemctl enable --now --user gnome-keyring-daemon.service
 
 echo '[INFO] Configuring ufw.'
 sudo ufw default deny
