@@ -1,3 +1,5 @@
+bindkey -s '^x' '^usource $ZSHRC\n'
+
 # edit command in editor
 autoload -z edit-command-line
 zle -N edit-command-line

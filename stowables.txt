@@ -21,3 +21,4 @@ zathura
 zsh
 neovide
 ssh
+wireplumber

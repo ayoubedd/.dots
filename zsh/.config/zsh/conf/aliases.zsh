@@ -28,6 +28,6 @@ alias mkdir="mkdir -p"
 alias cp="cp -r"
 
 # Stack
+alias -- -='cd -'
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
-
