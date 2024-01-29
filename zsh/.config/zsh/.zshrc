@@ -11,6 +11,7 @@ plug "ael-code/zsh-colored-man-pages"
 plug "jeffreytse/zsh-vi-mode"
 
 source "${ZDOTDIR}/conf/zsh.zsh"
+source "${ZDOTDIR}/conf/colors.zsh"
 source "${ZDOTDIR}/conf/aliases.zsh"
 source "${ZDOTDIR}/conf/bindings.zsh"
 source "${ZDOTDIR}/conf/plugins_config.zsh"
