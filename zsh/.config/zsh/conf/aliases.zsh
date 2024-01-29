@@ -18,12 +18,14 @@ alias gcl="git clone"
 # ls
 alias lsa="exa --icons -lah"
 alias ll="exa --icons -lh"
-alias {l,ls}="exa --icons "
-
-# fzf
-alias fzf="fzf --preview 'bat --color=always {}' --preview-window '~3'"
+alias {l,ls}="exa --icons"
 
 # Tools
 alias makej="make -j `nproc`"
 alias cat=bat
 alias grep="grep --color=auto"
+alias mkdir="mkdir -p"
+
+# Stack
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
