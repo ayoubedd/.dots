@@ -25,7 +25,9 @@ alias makej="make -j `nproc`"
 alias cat=bat
 alias grep="grep --color=auto"
 alias mkdir="mkdir -p"
+alias cp="cp -r"
 
 # Stack
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
