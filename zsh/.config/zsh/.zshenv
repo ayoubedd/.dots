@@ -17,17 +17,16 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # Include volta in path
 export VOLTA_HOME="$XDG_DATA_HOME/volta"
-export PATH="$VOLTA_HOME/bin:$HOME/.local/bin:$PATH"
 
 # Go path
 export GOPATH="$XDG_DATA_HOME/go"
 export GOCACHE="$XDG_CACHE_HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
 
 # Cargo path
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export PATH="$CARGO_HOME/bin:$PATH"
+
+export PATH="$GOBIN:$CARGO_HOME/bin:$VOLTA_HOME/bin:$PATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
