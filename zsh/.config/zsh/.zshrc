@@ -3,7 +3,6 @@
 
 plug "zap-zsh/supercharge"
 plug "agkozak/agkozak-zsh-prompt"
-plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-completions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
@@ -19,5 +18,5 @@ source "${ZDOTDIR}/conf/bindings.zsh"
 source "${ZDOTDIR}/conf/plugins_config.zsh"
 
 # Load and initialise completion system
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
