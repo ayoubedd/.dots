@@ -7,3 +7,4 @@ usr-local/**/lvim
 usr-local/**/lvid
 .zcompdump
 .zsh_history
+.zcalc_history
