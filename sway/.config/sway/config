@@ -41,7 +41,7 @@ exec {
 # General Settings
 default_orientation horizontal
 font pango:$font_name $font_size
-default_floating_border normal
+default_floating_border pixel 2px
 output * bg $wallpaper fill
 hide_edge_borders smart
 default_border pixel 2
