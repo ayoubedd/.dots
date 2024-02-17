@@ -31,7 +31,8 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
   nm-connection-editor fx thermald lazygit qemu-full \
   xorg-xwayland exiftool lynx perl-image-exiftool atool \
-  catdoc net-tools gnome-keyring ufw seahorse unrar)
+  catdoc net-tools gnome-keyring ufw seahorse unrar \
+  zoxide)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
