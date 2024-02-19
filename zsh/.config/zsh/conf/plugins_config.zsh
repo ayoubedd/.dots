@@ -25,3 +25,6 @@ HISTORY_SUBSTRING_SEARCH_PREFIXED=1
 
 #  "zsh-users/zsh-autosuggestions"
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+# zoxide
+eval "$(zoxide init zsh)"
