@@ -5,8 +5,8 @@ set {
   $up k
   $down j
 
-  $cursor "Catppuccin-Teal-Cursors"
-  $font_name "Noto Sans"
+  $cursor Catppuccin-Teal-Cursors
+  $font_name Cantarell Bold
   $font_size 12
 
   $mod Mod4
@@ -19,9 +19,6 @@ set {
   $snaparea grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png | wl-copy -t 'image/png'
   $snapfull grim -g "$(slurp -o)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png | wl-copy -t 'image/png'
 }
-
-# Import theme colors
-include themes/catppuccin-mocha
 
 # Waybar
 bar {
@@ -47,15 +44,17 @@ hide_edge_borders smart
 default_border pixel 2
 #xwayland disable
 smart_gaps off
-gaps inner 3
+gaps inner 0
+gaps outer 0
 
 # Idle configuration
 exec swayidle -w \
-	timeout 300 'swaylock -f --grace 15' \
+	timeout 300 'swaylock -f --grace 10' \
 	timeout 400 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f'
 
+include styling
 include display
 include input
 include modes

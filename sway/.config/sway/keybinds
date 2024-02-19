@@ -6,19 +6,16 @@ bindgesture swipe:3:left workspace next
 bindsym --no-repeat {
   $mod+Shift+Return exec alacritty --class floating-alacritty --title 'Floating Alacritty'
   $mod+Shift+f exec exec alacritty --class floating-alacritty --title 'lf' -e 'lf'
-  $mod+Shift+s exec exec alacritty --class floating-alacritty --title 'Spotify' -e 'spt'
   $mod+Shift+e exec exec alacritty --class floating-alacritty --title 'Lunarvim' -e '/home/orbit/.local/bin/lvim'
   $mod+Alt+l exec swaylock -f
-  $mod+m exec wofi-emoji | wl-copy
-  $mod+Shift+b exec ~/.local/bin/dmenu-bluetooth
+  $mod+Shift+m exec wofi-emoji | wl-copy
   $mod+Shift+c exec wl-color-picker clipboard
   $mod+Shift+v exec cliphist list | wofi -d | cliphist decode | wtype -s 600 -
-  $mod+Alt+v exec cliphist wipe
   $mod+Return exec $term
   $mod+x exec $action
   $mod+w exec $window_picker
   $mod+d exec $launcher
-  $mod+c exec ~/.local/bin/dragdrop
+  $mod+Shift+d exec ~/.local/bin/dragdrop
 }
 
 # Move your focus around
@@ -43,9 +40,7 @@ bindsym --no-repeat {
   $mod+Shift+q kill
   $mod+Shift+r reload
   $mod+a focus parent
-  $mod+e layout toggle split
-  $mod+b splith
-  $mod+v splitv
+  $mod+e layout toggle all
   $mod+space focus mode_toggle
   $mod+Tab 	workspace 	back_and_forth
   $mod+Shift+space floating toggle

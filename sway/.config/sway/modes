@@ -45,4 +45,17 @@ mode "mode_vim" {
 
 bindsym $mod+n mode "mode_vim"
 
+
+# Vim mode
+mode "split_mode" {
+  bindsym {
+    v split v
+    h split h
+  }
+
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+s mode "split_mode"
+
 # vi: ft=swayconfig
