@@ -47,18 +47,10 @@ smart_gaps off
 gaps inner 0
 gaps outer 0
 
-# Idle configuration
-exec swayidle -w \
-	timeout 300 'swaylock -f --grace 10' \
-	timeout 400 'swaymsg "output * dpms off"' \
-  resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f'
+# Import theme colors
+include themes/catppuccin-mocha
 
-include styling
-include display
-include input
-include modes
-include app_rules
-include keybinds
+# Load configs
+include ~/.config/sway/conf.d/*
 
 # vi: ft=swayconfig
