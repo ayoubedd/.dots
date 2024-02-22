@@ -24,8 +24,14 @@
 [init]
   defaultBranch = master
 
+[color]
+    ui = auto
+
 [include]
   path = gitconfig.ayoub
 
-[includeIf "gitdir:~/Code/1337/"]
-  path = gitconfig.1337
+[includeIf "gitdir:~/Code/42/"]
+  path = gitconfig.42
+
+[url "git@github.com"]
+    insteadOf = "gh"
