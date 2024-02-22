@@ -23,3 +23,5 @@ neovide
 ssh
 wireplumber
 curl
+ncmpcpp
+mpd
