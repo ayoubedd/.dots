@@ -16,13 +16,14 @@ alias gad="git add"
 alias gcl="git clone"
 
 # ls
-alias lsa="exa --icons -lah"
-alias ll="exa --icons -lh"
-alias {l,ls}="exa --icons"
+alias exa="exa --icons"
+alias {l,ls}="exa"
+alias lsa="exa -lah"
+alias ll="exa -lh"
 
 # Tools
-alias makej="make -j `nproc`"
-alias cat=bat
+alias makej="make -j \`nproc\`"
+alias cat="bat --plain"
 alias grep="grep --color=auto"
 alias mkdir="mkdir -p"
 alias cp="cp -r"
@@ -31,3 +32,23 @@ alias cp="cp -r"
 alias -- -='cd -'
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# Fallbacks for vim
+function vi() {
+  if [ $+commands[nvim] ]; then
+    nvim
+  elif [ $+commands[vim] ]; then
+    vim
+  elif [ $+commands[vi] ]; then
+    vi
+  fi
+}
+
+# Pacman boring commands
+alias pac="pacman"
+alias search="pac -Ss"
+alias update="sudo pac -Syu"
+alias install="sudo pac -S"
+
+# Ping
+alias pg="ping google.com -c 5"
