@@ -40,3 +40,6 @@ fi
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 export DENO_REPL_HISTORY="$XDG_CACHE_HOME/deno_repl_history"
 export DENO_DIR="$XDG_CACHE_HOME/deno/"
+
+# Curl
+export CURL_HOME="$XDG_CONFIG_HOME/curl"

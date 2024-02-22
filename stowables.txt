@@ -22,3 +22,4 @@ zsh
 neovide
 ssh
 wireplumber
+curl
