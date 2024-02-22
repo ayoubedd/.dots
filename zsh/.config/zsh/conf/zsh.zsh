@@ -14,3 +14,9 @@ setopt EXTENDED_GLOB        # Needed for file modification glob modifiers with c
 unsetopt MENU_COMPLETE      # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL       # Disable start/stop characters in shell editor.
 
+# Run macchina on each gradfather shell session
+if [ "$SHLVL" = "1" ]
+then
+  macchina
+fi
+
