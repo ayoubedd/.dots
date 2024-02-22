@@ -1,5 +1,3 @@
-bindkey -s '^x' '^usource $ZSHRC\n'
-
 # edit command in editor
 autoload -z edit-command-line
 zle -N edit-command-line
@@ -13,3 +11,11 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# Insert sudo before command
+function insert_sudo() {
+  zle beginning-of-line;
+  zle -U "sudo "
+}
+zle -N insert-sudo insert_sudo
+bindkey "^x" insert-sudo
