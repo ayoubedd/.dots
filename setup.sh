@@ -32,7 +32,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   nm-connection-editor fx thermald lazygit qemu-full \
   xorg-xwayland exiftool lynx perl-image-exiftool atool \
   catdoc net-tools gnome-keyring ufw seahorse unrar \
-  zoxide mpd mpc ncmpcpp)
+  zoxide mpd mpc ncmpcpp reflector)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
@@ -124,6 +124,13 @@ sudo cp ./confs/pulse/* /etc/pulse/
 
 echo '[INFO] Adding user to various gropus.'
 sudo usermod -aG video,docker $USER
+
+echo '[INFO] Generating mirrors.'
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+sudo reflector --country France,Germany,Spain,Belgium,Portugal \
+  --age 12 --fastest 10 --protocol http \
+  --sort rate --save /etc/pacman.d/mirrorlist \
+  --verbose
 
 echo '[INFO] Done.'
 
