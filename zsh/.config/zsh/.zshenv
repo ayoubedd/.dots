@@ -22,7 +22,7 @@ export GOBIN="$GOPATH/bin"
 # Cargo path
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
-export PATH="$GOBIN:$CARGO_HOME/bin:$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOBIN:$CARGO_HOME/bin:$VOLTA_HOME/bin:$PATH"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
