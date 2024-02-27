@@ -5,12 +5,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-export HISTSIZE=50000     # Maximum events for internal history
-export SAVEHIST=50000     # Maximum events in history file
+# export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+# export HISTSIZE=50000     # Maximum events for internal history
+# export SAVEHIST=50000     # Maximum events in history file
 
-# Bat theme
-export BAT_THEME="Catppuccin-mocha"
+# Setting bat as the man pager for colors highlighting
+export MANPAGER="sh -c 'col -bx | bat -l man --plain --theme=default'"
 
 # SSH Agent socket
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
@@ -43,3 +43,4 @@ export DENO_DIR="$XDG_CACHE_HOME/deno/"
 
 # Curl
 export CURL_HOME="$XDG_CONFIG_HOME/curl"
+export OVPN_ROOT="$HOME/Documents/fastvpn-ovpns"
