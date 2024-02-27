@@ -5,10 +5,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-# export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-# export HISTSIZE=50000     # Maximum events for internal history
-# export SAVEHIST=50000     # Maximum events in history file
-
 # Setting bat as the man pager for colors highlighting
 export MANPAGER="sh -c 'col -bx | bat -l man --plain --theme=default'"
 

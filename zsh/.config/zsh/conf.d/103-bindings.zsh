@@ -1,3 +1,5 @@
+zmodload zsh/complist
+
 # edit command in editor
 autoload -z edit-command-line
 zle -N edit-command-line
@@ -19,3 +21,6 @@ function insert_sudo() {
 }
 zle -N insert-sudo insert_sudo
 bindkey "^x" insert-sudo
+
+bindkey -M menuselect '?' history-incremental-search-forward
+bindkey -M menuselect '/' history-incremental-search-backward
