@@ -75,3 +75,12 @@ function extract {
 function fman {
   man -k - | fzf | cut -d ' ' -f 1 | xargs man
 }
+
+function fopen {
+  local FILE=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")
+  if [ ! -f "$FILE" ];then
+    exit 1
+  fi
+
+  xdg-open "$FILE"
+}
