@@ -78,9 +78,8 @@ function fman {
 
 function fopen {
   local FILE=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")
-  if [ ! -f "$FILE" ];then
-    exit 1
+  if [ -f "$FILE" ];then
+    xdg-open "$FILE"
   fi
 
-  xdg-open "$FILE"
 }
