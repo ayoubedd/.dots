@@ -1,6 +1,6 @@
 function fkill {
   local PIDS=$(
-    pds -aux |
+  LIBPROC_HIDE_KERNEL= ps -aux |
     fzf --bind 'ctrl-r:reload(ps -ef)' --header 'Press CTRL-R to reload' \
         --header-lines=1 --layout=reverse -m |
     awk '{print $2}'
