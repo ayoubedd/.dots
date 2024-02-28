@@ -29,12 +29,11 @@ bar {
 
 # Daemons and dbus/systemd envs
 exec {
+  dbus-update-activation-environment --systemd DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY
   mako
   kanshi
   ~/.local/bin/import-gsettings
   wl-paste --watch cliphist -max-items 100 store
-  dbus-update-activation-environment --systemd I3SOCK WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-  /usr/lib/xfce-polkit/xfce-polkit
 }
 
 # General Settings
@@ -50,7 +49,7 @@ gaps inner 0
 gaps outer 0
 
 # Cursor
-seat seat0 xcursor_theme $cursor $cursor_size
+seat * xcursor_theme $cursor $cursor_size
 focus_follows_mouse no
 
 # Import theme colors
