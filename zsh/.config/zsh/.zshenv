@@ -4,6 +4,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export WORDCHARS=${WORDCHARS//\//}
 
 # Setting bat as the man pager for colors highlighting
 export MANPAGER="sh -c 'col -bx | bat -l man --plain --theme=default'"
