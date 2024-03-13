@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 function is_cool_coloring() {
   if  [ "$TERM" == "xterm-256color" ] ||
@@ -136,7 +136,7 @@ xdg-user-dirs-update
 
 msg INFO 'installing volta and nodejs'
 curl https://get.volta.sh | bash
-source ~/.profile
+source ~/.zshenv
 volta install node
 
 msg INFO 'building bat themes cache'
