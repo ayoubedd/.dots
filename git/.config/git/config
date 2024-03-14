@@ -1,37 +1,79 @@
+# vi: ft=gitconfig
+
 [core]
   excludesfile = gitignore
   editor = lvim
   pager = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only --features=
+
+[include]
+  path = catppuccin-mocha
 
 [delta]
-    features = decorations
+  features = interactive decorations catppuccin-mocha
+  side-by-side = true
+  line-numbers = true
 
 [delta "interactive"]
-    keep-plus-minus-markers = false
+  keep-plus-minus-markers = false
 
 [delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = white
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = white
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
 
 [init]
   defaultBranch = master
 
 [color]
-    ui = auto
-
-[include]
-  path = gitconfig.ayoub
-
-[includeIf "gitdir:~/Code/42/"]
-  path = gitconfig.42
+  ui = auto
 
 [url "git@github.com"]
-    insteadOf = "gh"
+  insteadOf = "gh"
+
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
+
+[alias]
+  # add
+  a = add
+
+  # commit
+  c = commit
+  cm = commit -m
+  cam = commit -am
+  caam = commit -a --amend -m
+
+  # status
+  s = status -s
+
+  # push
+  p = push
+  pf = push --force-with-lease
+
+  # diff
+  d = diff
+  ds = diff --staged
+
+  # log
+  l = log
+  lo = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+
+  # stash
+  staash = stash --all
+
+  # branch
+  b = !git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'
+
+# loading profiles
+[include]
+  path = profiles

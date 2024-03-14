@@ -1,0 +1,8 @@
+# vi: ft=gitconfig
+
+# default profile
+[include]
+  path = gitconfig.ayoub
+
+[includeIf "gitdir:~/Code/42/"]
+  path = gitconfig.42

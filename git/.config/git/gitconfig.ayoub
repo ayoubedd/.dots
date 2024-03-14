@@ -1,3 +1,5 @@
+# vi: ft=gitconfig
+
 [user]
 	email = me@ayoubedd.me
 	name = Ayoub Eddaoudi
