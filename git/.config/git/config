@@ -63,6 +63,10 @@
   # pull
   pl = pull
 
+  # clone
+  cl = clone
+  cls = clone --depth=1 # shallow clone
+
   # diff
   d = diff
   ds = diff --staged

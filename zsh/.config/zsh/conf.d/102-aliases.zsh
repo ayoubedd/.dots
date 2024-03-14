@@ -5,16 +5,6 @@ alias -s {txt,json,conf}=bat
 alias -s {mp4,mp3,mkv,mov,avi,ts}=mpv
 alias -s md=glow
 
-# git
-alias gst="git status"
-alias gp="git push"
-alias gl="git log"
-alias glo="git log --oneline"
-alias gcm="git commit -m"
-alias gdf="git diff"
-alias gad="git add"
-alias gcl="git clone"
-
 # ls
 alias exa="exa --icons"
 alias {l,ls}="exa"
