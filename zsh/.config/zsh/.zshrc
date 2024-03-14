@@ -13,6 +13,7 @@ plug "zsh-users/zsh-history-substring-search"
 plug "arzzen/calc.plugin.zsh"
 plug "jeffreytse/zsh-vi-mode"
 plug "wazum/zsh-directory-dot-expansion"
+plug "hlissner/zsh-autopair"
 
 autoload -Uz compinit
 _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"

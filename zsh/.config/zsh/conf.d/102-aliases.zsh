@@ -11,13 +11,6 @@ alias {l,ls}="exa"
 alias lsa="exa -lah"
 alias ll="exa -lh"
 
-# Tools
-alias makej="make -j \`nproc\`"
-alias cat="bat --plain"
-alias grep="grep --color=auto"
-alias mkdir="mkdir -p"
-alias cp="cp -r"
-
 # Stack
 alias -- -='cd -'
 alias d='dirs -v'
@@ -32,10 +25,15 @@ alias {update, install}="sudo pacman -Syu"
 alias myip="curl icanhazip.com"
 
 # Sanity flags
-alias cp="cp -i"
+alias cp="cp -ri"
 alias rm="rm -i"
 alias df='df -h'
+alias makej="make -j \`nproc\`"
+alias cat="bat --plain"
+alias grep="grep --color=auto"
+alias mkdir="mkdir -p"
 
-# Ping
+alias o="xdg-open"
+alias path='echo -e ${PATH//:/\\n}'
 alias pg="ping google.com -c 5"
 alias copy="wl-copy"
