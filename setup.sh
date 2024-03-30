@@ -132,15 +132,10 @@ msg INFO 'stowing your config files'
 stow -vSt ~/ $(cat ./stowables.txt)
 
 msg INFO 'updating xdg-user directories'
-xdg-user-dirs-update
+xdg-user-dirs-update --force
 
-msg INFO 'installing volta and nodejs'
-curl https://get.volta.sh | bash
-source ~/.zshenv
-volta install node
-
-msg INFO 'building bat themes cache'
-bat cache --build
+# msg INFO 'building bat themes cache'
+# bat cache --build
 
 msg INFO 'creating symbolic links to default mime types'
 ln -sf ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
@@ -149,22 +144,27 @@ ln -sf ~/.config/mimeapps.list ~/.local/share/applications/defaults.list
 msg INFO 'copying wallpapers'
 cp ./media/Wallpapers/{wallpaper.jpg,lockscreen.jpg} ~/Pictures/Wallpapers/
 
+msg INFO 'copying configs/scripts to system'
+sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
+sudo chmod +x /usr/local/bin/sway-wrapper
+
+sudo cp ./confs/greetd/greetd-config.toml /etc/greetd/config.toml
+sudo cp ./confs/tlp/tlp.conf /etc/tlp.conf
+sudo cp ./confs/udev/*.rules /etc/udev/rules.d/
+sudo cp ./confs/sudoers.d/* /etc/sudoers.d/
+sudo cp ./confs/pulse/* /etc/pulse/
+sudo cp ./confs/nft/nftables.conf /etc/nftables.conf
+
 msg INFO 'enabling system services'
 sudo systemctl enable --now greetd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now thermald.service
 sudo systemctl enable --now fprintd.service
 sudo systemctl enable --now nftables.service
+sudo systemctl enable --now ldm.service
+sudo systemctl enable --now tlp.service
+systemctl --user start gcr-ssh-agent.socket
 systemctl --user enable --now gnome-keyring-daemon.service
-systemctl --user enable --now mpd.service
-
-msg INFO 'copying configs/scripts to system'
-sudo cp ./scripts/sway-wrapper /usr/local/bin/sway-wrapper
-sudo cp ./confs/greetd-config.toml /etc/greetd/config.toml
-sudo cp ./confs/udev/*.rules /etc/udev/rules.d/
-sudo cp ./confs/sudoers.d/* /etc/sudoers.d/
-sudo cp ./confs/pulse/* /etc/pulse/
-sudo cp ./confs/nft/nftables.conf /etc/nftables.conf
 
 msg INFO 'adding user to various gropus'
 sudo usermod -aG video,docker $USER
