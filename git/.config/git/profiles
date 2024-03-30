@@ -2,7 +2,7 @@
 
 # default profile
 [include]
-  path = gitconfig.ayoub
+  path = gitconfig.me
 
 [includeIf "gitdir:~/Code/42/"]
   path = gitconfig.42
