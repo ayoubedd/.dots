@@ -7,7 +7,7 @@ TMP_FILE=$(mktemp)
 (
 cat <<EOL > $TMP_FILE
 gtk-theme=Catppuccin-Mocha-Standard-Blue-Dark
-icon-theme=ePapirus-Dark
+icon-theme=Papirus-Dark
 color-scheme=prefer-dark
 cursor-theme=Catppuccin-Mocha-Dark-Cursors
 cursor-size=22
@@ -17,7 +17,7 @@ enable-animations=true
 EOL
 
 awk -F '=' '/^[a-z]/ {
-print("gsettings set org.gnome.desktop.interface " $1 " " $2);
+system("gsettings set org.gnome.desktop.interface " $1 " " $2);
 }' $TMP_FILE 1>/dev/null
 )
 
