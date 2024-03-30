@@ -134,6 +134,10 @@ stow -vSt ~/ $(cat ./stowables.txt)
 msg INFO 'updating xdg-user directories'
 xdg-user-dirs-update --force
 
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+source "$HOME/.zshenv"
+source "$ZDOTDIR/.zshrc"
+
 # msg INFO 'building bat themes cache'
 # bat cache --build
 
