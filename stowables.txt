@@ -12,7 +12,6 @@ paru
 sway
 swayimg
 swaylock
-systemd
 usr-local
 waybar
 wofi
