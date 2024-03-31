@@ -66,7 +66,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
   nm-connection-editor fx thermald lazygit qemu-full \
-  xorg-xwayland lynx perl-image-exiftool atool \
+  xorg-xwayland lynx perl-image-exiftool atool deno \
   catdoc net-tools gnome-keyring seahorse unrar \
   zoxide mpd mpc ncmpcpp reflector p7zip nftables)
 
