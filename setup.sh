@@ -156,6 +156,7 @@ sudo chmod +x /usr/local/bin/sway-wrapper
 sudo cp ./confs/greetd/greetd-config.toml /etc/greetd/config.toml
 sudo cp ./confs/tlp/tlp.conf /etc/tlp.conf
 sudo cp ./confs/udev/*.rules /etc/udev/rules.d/
+sudo cp ./confs/pam/* /etc/pam.d/
 sudo cp ./confs/sudoers.d/* /etc/sudoers.d/
 sudo cp ./confs/pulse/* /etc/pulse/
 sudo cp ./confs/nft/nftables.conf /etc/nftables.conf
