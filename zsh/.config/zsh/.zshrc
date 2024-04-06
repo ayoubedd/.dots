@@ -14,6 +14,7 @@ plug "arzzen/calc.plugin.zsh"
 plug "jeffreytse/zsh-vi-mode"
 plug "wazum/zsh-directory-dot-expansion"
 plug "hlissner/zsh-autopair"
+plug "ael-code/zsh-colored-man-pages"
 
 autoload -Uz compinit
 _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
