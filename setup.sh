@@ -67,7 +67,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
   nm-connection-editor fx thermald lazygit qemu-full \
   xorg-xwayland lynx perl-image-exiftool atool deno \
-  catdoc net-tools gnome-keyring seahorse unrar \
+  catdoc net-tools gnome-keyring seahorse unrar bind \
   zoxide mpd mpc ncmpcpp reflector p7zip nftables \
   sof-firmware)
 
