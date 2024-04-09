@@ -69,7 +69,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   xorg-xwayland lynx perl-image-exiftool atool deno \
   catdoc net-tools gnome-keyring seahorse unrar bind \
   zoxide mpd mpc ncmpcpp reflector p7zip nftables \
-  sof-firmware)
+  sof-firmware wireguard-tools)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
