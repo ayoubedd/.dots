@@ -142,10 +142,10 @@ image/x-portable-graymap=swayimg.desktop;
 image/x-portable-pixmap=swayimg.desktop;
 
 
-x-scheme-handler/about=firefox.desktop;
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/unknown=firefox.desktop;
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/chrome=firefox.desktop
 
 
@@ -176,7 +176,7 @@ text/x-pascal=lvim.desktop
 text/x-tcl=lvim.desktop
 text/x-tex=lvim.desktop
 text/plain=lvim.desktop
-text/html=lvim.desktop
+text/html=chromium.desktop
 text/x-makefile=lvim.desktop
 text/x-shellscript=lvim.desktop
 
@@ -185,3 +185,6 @@ application/json=lvim.desktop
 application/x-shellscript=lvim.desktop
 text/x-php=lvim.desktop
 application/javascript=lvim.desktop
+text/csv=lvim.desktop
+application/octet-stream=lvim.desktop
+x-scheme-handler/postman=Postman.desktop

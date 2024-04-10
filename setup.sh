@@ -64,12 +64,12 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   swaybg waybar wofi brightnessctl zathura zathura-pdf-mupdf \
   swayimg noto-fonts noto-fonts-emoji otf-font-awesome \
   papirus-icon-theme ttf-roboto cliphist xdg-user-dirs \
-  xdg-desktop-portal xdg-desktop-portal-wlr procps-ng \
+  xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
   nm-connection-editor fx thermald lazygit qemu-full \
   xorg-xwayland lynx perl-image-exiftool atool deno \
   catdoc net-tools gnome-keyring seahorse unrar bind \
   zoxide mpd mpc ncmpcpp reflector p7zip nftables \
-  sof-firmware wireguard-tools)
+  sof-firmware wireguard-tools procps-ng)
 
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
