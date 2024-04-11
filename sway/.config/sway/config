@@ -29,9 +29,10 @@ bar {
 
 # Daemons and dbus/systemd envs
 exec {
-  dbus-update-activation-environment --systemd DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY
-  mako
   kanshi
+  systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+  mako
   ~/.local/bin/import-gsettings
   wl-paste --watch cliphist -max-items 100 store
 }
