@@ -15,6 +15,9 @@ plug "jeffreytse/zsh-vi-mode"
 plug "wazum/zsh-directory-dot-expansion"
 plug "hlissner/zsh-autopair"
 plug "ael-code/zsh-colored-man-pages"
+plug "ChrisPenner/copy-pasta"
+
+fpath+=($ZDOTDIR/completions)
 
 autoload -Uz compinit
 _comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
