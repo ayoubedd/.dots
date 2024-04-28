@@ -4,9 +4,9 @@ bindgesture swipe:3:left workspace next
 
 # Apps
 bindsym --no-repeat {
-  $mod+Shift+Return exec alacritty --class floating-alacritty --title 'Floating Alacritty'
-  $mod+Shift+f exec exec alacritty --class floating-alacritty --title 'lf' -e 'lf'
-  $mod+Shift+e exec exec alacritty --class floating-alacritty --title 'Lunarvim' -e '/home/orbit/.local/bin/lvim'
+  $mod+Shift+Return exec $term --class floating-alacritty --title 'Floating Alacritty'
+  $mod+Shift+f exec exec $term --class floating-alacritty --title 'lf' -e 'lf'
+  $mod+Shift+e exec exec $term --class floating-alacritty --title 'Lunarvim' -e '/home/orbit/.local/bin/lvim'
   $mod+Alt+l exec swaylock -f
   $mod+Shift+m exec wofi-emoji | wl-copy
   $mod+Shift+c exec wl-color-picker clipboard
