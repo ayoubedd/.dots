@@ -3,7 +3,7 @@ grace-no-touch
 
 # ignore-empty-password
 disable-caps-lock-text
-image=~/Pictures/Wallpapers/lockscreen.jpg
+image=~/Pictures/Wallpapers/lockscreen.png
 font=Roboto
 
 text-ver-color=00000000
