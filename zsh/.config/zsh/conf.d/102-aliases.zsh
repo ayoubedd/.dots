@@ -28,6 +28,8 @@ alias mkdir="mkdir -p"
 alias open="xdg-open"
 alias path='echo -e ${PATH//:/\\n}'
 alias pg="ping 1.0.0.1 -c 5"
+alias vi=nvim
+alias todo="$EDITOR ~/Documents/Notes/TODO.md"
 
 # default apps
 alias -s {pdf,epub,xps,png,jpeg,jpg,gif,svg,webp,bmp,pnm,tiff,txt,json,conf,mp4,mp3,mkv,mov,avi,ts}=open $@
