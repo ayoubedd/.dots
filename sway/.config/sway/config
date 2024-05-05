@@ -1,5 +1,6 @@
 # Global variables
 set {
+  $mod Mod4
   $left h
   $right l
   $up k
@@ -11,15 +12,34 @@ set {
   $font_name Cantarell Bold
   $font_size 12
 
-  $mod Mod4
   $term alacritty
+  $term_floating $term --class floating-alacritty --title 'Floating Alacritty'
   $action ~/.local/bin/sway_action
   $launcher ~/.local/bin/app_launcher
+  $execmd ~/.local/bin/execmd
+  $dragdrop ~/.local/bin/dragdrop
+  $file_manager $term --class floating-alacritty --title 'lf' -e 'lf'
   $window_picker ~/.local/bin/window_picker
-  $wallpaper ~/Pictures/Wallpapers/wallpaper.png
-
+  $clipboard_mngr cliphist list | wofi -d | cliphist decode | wtype -s 600 -
+  $color_picker wl-color-picker clipboard
+  $emoji_picker wofi-emoji | wl-copy
+  $lock_screen swaylock -f
   $snaparea grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_area.png | wl-copy -t 'image/png'
   $snapfull grim -g "$(slurp -o)" - | tee ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss)_full.png | wl-copy -t 'image/png'
+
+  # Sound
+  $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
+  $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
+  $volume_mute_toggle pactl set-sink-mute @DEFAULT_SINK@ toggle
+  $player_play_toggle playerctl play-pause
+  $player_next playerctl next
+  $player_prev playerctl previous
+
+  # Screen
+  $screen_brightness_up brightnessctl set +5% && notify-send "Brightness" "Brightness: $(brightnessctl | grep -Eo '[0-9]+%')"
+  $screen_brightness_down brightnessctl set 5%- && notify-send "Brightness" "Brightness: $(brightnessctl | grep -Eo '[0-9]+%')"
+
+  $wallpaper ~/Pictures/Wallpapers/wallpaper.png
 }
 
 # Waybar

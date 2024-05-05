@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+set -e
+
+if [ "$(pgrep wofi)" ]
+then
+	exit 1
+fi
+
+source ~/.zshenv
+
+CMD=$(wofi --show dmenu -H 1 --xoffset=660 --yoffset=400 -p 'Command')
+
+exec "$CMD"
