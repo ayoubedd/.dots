@@ -25,7 +25,7 @@ alias cat="bat --plain"
 alias grep="grep --color=auto"
 alias mkdir="mkdir -p"
 
-alias open="xdg-open"
+alias o="xdg-open"
 alias path='echo -e ${PATH//:/\\n}'
 alias pg="ping 1.0.0.1 -c 5"
 alias vi=nvim
