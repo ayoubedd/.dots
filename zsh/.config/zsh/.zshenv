@@ -27,8 +27,8 @@ if [[ -n $SSH_CONNECTION ]]; then
   export VISUAL='vim'
   export EDITOR='vim'
 else
-  export VISUAL='lvid'
-  export EDITOR='lvim'
+  export VISUAL='nvim'
+  export EDITOR='nvim'
 fi
 
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
