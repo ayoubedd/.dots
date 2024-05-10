@@ -1,0 +1,185 @@
+#!/bin/bash
+
+BIN_NAME=$(echo $0 | awk -F '/' '{print $NF}')
+
+PREFERRED_SERVERS=(
+  "NCVPN-ES-Madrid-UDP.ovpn"
+  "NCVPN-FR-Paris-UDP.ovpn"
+)
+
+function msg() {
+  if [ "$TERM" == "xterm-256color" ] || [ "$TERM" == "xterm-16color" ];then
+    case $1 in
+      'INFO')
+        echo -en '\033[32m'
+        ;;
+      'ERROR')
+        echo -en '\033[31m'
+        ;;
+    esac
+  fi
+
+  echo -n "[$1] "
+
+  if [ "$TERM" == "xterm-256color" ] || [ "$TERM" == "xterm-16color" ];then
+    echo -en '\033[0m'
+  fi
+
+  echo $2
+}
+
+function is_connected() {
+  if [ "$(pgrep openvpn)" != "" ];
+  then
+    echo yes
+    exit 0
+  fi
+
+  echo no
+}
+
+function status() {
+  local IP=$(curl -s icanhazip.com)
+
+  if [ "$(is_connected)" == "yes" ];
+  then
+    msg INFO 'Connected'
+    msg INFO "Public IP: $IP"
+  else
+    msg INFO 'Not connected'
+    msg INFO "Public IP: $IP"
+  fi
+}
+
+function connect_to_server() {
+  local OPNVPN_FILE=$1
+  local LOCATION="$(echo $OPNVPN_FILE | awk -F '/' '{print $NF}' | awk -F '-' '{print $3}')"
+
+  (
+    set -e
+    sudo openvpn --config "$OPNVPN_FILE" --auth-user-pass "$OVPN_AUTH_FILE" --allow-compression yes --daemon
+  ) 2>&1 1>/dev/null
+
+  if [ "$?" == "0" ]; then
+    while true; do
+      msg INFO "Connecting to $LOCATION..."
+      sleep 3
+      if [ -n "$NEW_IP" ] && [ "$NEW_IP" != "$OLD_IP" ] ; then break; fi
+      NEW_IP=$(curl -s -m 2 icanhazip.com)
+    done
+
+    msg INFO "Connected to $LOCATION";
+    msg INFO "OLD IP address: $OLD_IP"
+    msg INFO "NEW IP address: $NEW_IP"
+
+    exit 0;
+  fi
+
+  msg ERROR 'Failure connecting'
+  exit 2
+}
+
+function disconnect_from_server() {
+  PID=$(pgrep openvpn)
+  while true; do
+    sudo kill -s TERM $PID
+    msg INFO 'Disconnecting...'
+
+    sleep 2
+    if [ "$(pgrep openvpn)" == "" ]; then break; fi
+  done
+}
+
+function connect() {
+  # Checking if we already connected
+  if [ "$(is_connected)" == "yes" ];
+  then
+    msg INFO 'Already connected'
+    exit 1;
+  fi
+
+  # Preserving OLD Public ip
+  # for checking wheter connected Successfully
+  # and for logging
+  local OLD_IP=$(curl -s icanhazip.com)
+
+  # Connect to selected location
+  if [ "$1" ]; then 
+    local FILE_PATH="$(find $OVPN_ROOT -type f -iname "*$(echo $1 | tr '-' ' ')*.ovpn" | head -n 1)"
+    if [ ! "$FILE_PATH" ]; then msg ERROR 'cannot file select region config file'; exit 1; fi
+    connect_to_server "$FILE_PATH"
+    exit 1;
+  fi
+
+
+  # Connect to favorites
+  for SERVER in ${PREFERRED_SERVERS[@]}
+  do
+    FILE_PATH="$OVPN_ROOT/$SERVER"
+
+    # Skippping non existing files
+    if [ ! -f "$FILE_PATH" ]; then continue; fi
+    connect_to_server $FILE_PATH
+  done
+}
+
+function disconnect()
+{
+  if [ "$(is_connected)" == "no" ];
+  then
+    msg INFO 'Not connected'
+    exit 1;
+  fi
+
+  # kill openvpn process
+  disconnect_from_server
+
+  # Logging
+  if [ "$(is_connected)" == "yes" ]; then
+    msg ERROR 'Failure disconnecting'
+  else
+    msg INFO 'Successfully disconnected'
+  fi
+}
+
+function usage() {
+  echo -e "usage:
+\t$BIN_NAME\t-c [opvpn file name, within \$OVPN_ROOT] -- connect
+\t\t-d -- disconnect
+"
+}
+
+# OVPN_ROOT="$HOME/Downloads/name-cheap-ovpn"
+OVPN_AUTH_FILE=${OVPN_AUTH_FILE:-"$OVPN_ROOT/.sec"};
+
+# Checks
+if [ "$OVPN_ROOT" == "" ]; then
+  msg ERROR '$OVPN_ROOT is not defined'
+  msg INFO 'export OVPN_ROOT to point to a directory in which ovpn files resides'
+  exit 1
+elif [ ! -d "$OVPN_ROOT" ]; then
+  msg ERROR "'$OVPN_ROOT' doesn't exist"
+  exit 1
+elif [ ! -f "$OVPN_AUTH_FILE" ]; then
+  msg ERROR "'$OVPN_AUTH_FILE' authentication file doesn't exist"
+  exit 1
+fi
+
+if [ $# -eq 0 ]; then msg ERROR 'Invalid usage'; usage; exit 1; fi
+
+case "$1" in
+  -c)
+    connect "$2";
+    ;;
+  -d)
+    disconnect;
+    ;;
+  -s)
+    status;
+    ;;
+  *)
+    msg ERROR 'Unrecognised command'
+    usage;
+    exit 1
+    ;;
+esac
