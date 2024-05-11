@@ -178,6 +178,7 @@ application/javascript=lvim.desktop
 text/csv=lvim.desktop
 application/octet-stream=lvim.desktop
 x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/msteams=teams-for-linux.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
