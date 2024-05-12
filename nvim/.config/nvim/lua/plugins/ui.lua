@@ -1,5 +1,11 @@
 return {
   {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function ()
+      require("ibl").setup()
+    end
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     config = function()
       local function my_on_attach(bufnr)
