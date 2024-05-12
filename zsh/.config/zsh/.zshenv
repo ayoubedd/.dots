@@ -37,4 +37,6 @@ export DENO_DIR="$XDG_CACHE_HOME/deno/"
 
 # Curl
 export CURL_HOME="$XDG_CONFIG_HOME/curl"
+
 export OVPN_ROOT="$HOME/Documents/fastvpn-ovpns"
+export NOTES_PATH="$HOME/Documents/Notes"
