@@ -1,5 +1,6 @@
 local opt = vim.opt
 local g = vim.g
+local o = vim.o
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -77,3 +78,6 @@ opt.expandtab = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
+
+opt.termguicolors = true
+o.guifont = "JetBrainsMono Nerd Font:h18"

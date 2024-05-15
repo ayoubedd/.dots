@@ -1,5 +1,8 @@
 return {
   {
+    'github/copilot.vim'
+  },
+  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = true
@@ -430,6 +433,14 @@ return {
           documentation = cmp.config.window.bordered(),
         }
       }
+
+      cmp.setup.filetype({ 'sql' }, {
+        sources = {
+          { name = 'vim-dadbod-completion' },
+          { name = 'buffer' },
+        },
+      })
+
     end,
   }
 }

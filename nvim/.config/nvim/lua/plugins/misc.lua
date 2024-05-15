@@ -1,4 +1,7 @@
 return {
+  "tpope/vim-dadbod",
+  "kristijanhusak/vim-dadbod-completion",
+  "kristijanhusak/vim-dadbod-ui",
   {
     "LunarVim/bigfile.nvim",
     config = function ()
