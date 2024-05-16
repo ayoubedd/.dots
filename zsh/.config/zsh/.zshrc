@@ -1,5 +1,8 @@
-# Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# Insuring Zap installed
+[ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] &&
+  zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+
+source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
 # Loading config files
 for FILE in $(find "$ZDOTDIR/conf.d/" -type f -name '*.zsh' -exec basename {} \; | sort -n); do
