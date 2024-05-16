@@ -1,9 +1,7 @@
 return {
-  "tpope/vim-dadbod",
-  "kristijanhusak/vim-dadbod-completion",
-  "kristijanhusak/vim-dadbod-ui",
+  'tpope/vim-sleuth', -- Automatically set the 'shiftwidth' and 'expandtab' options based on the current file
   {
-    "LunarVim/bigfile.nvim",
+    "LunarVim/bigfile.nvim", -- Disables certain plugins/features on big files
     config = function ()
       -- default config
       require("bigfile").setup {
@@ -23,10 +21,7 @@ return {
     end
   },
   {
-    'tpope/vim-sleuth'
-  },
-  {
-    "ahmedkhalf/project.nvim",
+    "ahmedkhalf/project.nvim", -- Changes PWD to the root of the project
     config = function()
       require("project_nvim").setup {
         -- Manual mode doesn't automatically change your root directory, so you have
@@ -71,13 +66,13 @@ return {
     end
   },
   {
-    "Pocco81/auto-save.nvim",
+    "Pocco81/auto-save.nvim", -- Automatically save your changes on mode change
     config = function()
       require("auto-save").setup()
     end,
   },
   {
-    'numToStr/Comment.nvim',
+    'numToStr/Comment.nvim', -- Commenting plugin
     opts = {
       {
         ---Add a space b/w comment and the line
@@ -126,7 +121,7 @@ return {
     lazy = false
   },
   {
-    'RRethy/vim-illuminate',
+    'RRethy/vim-illuminate', -- Highlight all instances of the word under the cursor
     config = function()
       -- default configuration
       require('illuminate').configure({
@@ -137,7 +132,7 @@ return {
           'regex',
         },
         -- delay: delay in milliseconds
-        delay = 100,
+        delay = 200,
         -- filetype_overrides: filetype specific overrides.
         -- The keys are strings to represent the filetype while the values are tables that
         -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
@@ -148,6 +143,8 @@ return {
           'dirbuf',
           'dirvish',
           'fugitive',
+          'alpha',
+          'toggleterm',
         },
         -- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
         -- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
@@ -157,7 +154,7 @@ return {
         modes_denylist = {},
         -- modes_allowlist: modes to illuminate, this is overridden by modes_denylist
         -- See `:help mode()` for possible values
-        modes_allowlist = {},
+        modes_allowlist = {"n"},
         -- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
         -- Only applies to the 'regex' provider
         -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')

@@ -1,10 +1,4 @@
 return {
-  -- {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   config = function ()
-  --     require("ibl").setup()
-  --   end
-  -- },
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
@@ -286,7 +280,7 @@ return {
           theme = "auto",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
-          disabled_filetypes = { "alpha" },
+          disabled_filetypes = { statusline = { "alpha" } },
           ignore_focus = {},
           always_divide_middle = true,
           globalstatus = true,

@@ -7,27 +7,9 @@ return {
     event = "InsertEnter",
     config = true
   },
-  -- {
-  --   "SmiteshP/nvim-navic",
-  --   config = function()
-  --     local navic = require('nvim-navic')
-  --     local on_attach = function(client, bufnr)
-  --       if client.server_capabilities.documentSymbolProvider then
-  --         navic.attach(client, bufnr)
-  --       end
-  --     end
-  --     require("lspconfig").clangd.setup {
-  --       on_attach = on_attach
-  --     }
-  --     vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-  --   end,
-  --   dependencies = {
-  --     "neovim/nvim-lspconfig"
-  --   }
-  -- },
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    version = "main", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     opts = {},
     config = true
