@@ -9,6 +9,7 @@ for FILE in $(find "$ZDOTDIR/conf.d/" -type f -name '*.zsh' -exec basename {} \;
   source "$ZDOTDIR/conf.d/$FILE"
 done
 
+plug "zsh-users/zsh-autosuggestions"
 plug "agkozak/agkozak-zsh-prompt"
 plug "zsh-users/zsh-completions"
 plug "zsh-users/zsh-syntax-highlighting"
@@ -18,7 +19,6 @@ plug "jeffreytse/zsh-vi-mode"
 plug "wazum/zsh-directory-dot-expansion"
 plug "hlissner/zsh-autopair"
 plug "ael-code/zsh-colored-man-pages"
-plug "ChrisPenner/copy-pasta"
 
 fpath+=($ZDOTDIR/completions)
 
