@@ -8,6 +8,60 @@ return {
     config = true
   },
   {
+    'onsails/lspkind.nvim',
+    config = function()
+      require('lspkind').init({
+          -- DEPRECATED (use mode instead): enables text annotations
+          --
+          -- default: true
+          -- with_text = true,
+
+          -- defines how annotations are shown
+          -- default: symbol
+          -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+          mode = 'symbol_text',
+
+          -- default symbol map
+          -- can be either 'default' (requires nerd-fonts font) or
+          -- 'codicons' for codicon preset (requires vscode-codicons font)
+          --
+          -- default: 'default'
+          preset = 'codicons',
+
+          -- override preset symbols
+          --
+          -- default: {}
+          symbol_map = {
+            Text = "󰉿",
+            Method = "󰆧",
+            Function = "󰊕",
+            Constructor = "",
+            Field = "󰜢",
+            Variable = "󰀫",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Property = "󰜢",
+            Unit = "󰑭",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
+            Color = "󰏘",
+            File = "󰈙",
+            Reference = "󰈇",
+            Folder = "󰉋",
+            EnumMember = "",
+            Constant = "󰏿",
+            Struct = "󰙅",
+            Event = "",
+            Operator = "󰆕",
+            TypeParameter = "",
+          },
+      })
+    end
+  },
+  {
     "kylechui/nvim-surround",
     version = "main", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -305,6 +359,8 @@ return {
       'hrsh7th/cmp-path',
     },
     config = function()
+      local lspkind = require('lspkind');
+
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
@@ -405,24 +461,30 @@ return {
         },
         formatting = {
           fields = { "kind", "abbr" },
-          format = function(_, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind] or ""
-            return vim_item
+          format = function(entry, vim_item)
+              local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+              local strings = vim.split(kind.kind, "%s", { trimempty = true })
+              kind.kind = " " .. (strings[1] or "") .. " "
+              kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+              local max_width = 14
+
+              if max_width ~= 0 and #vim_item.abbr > max_width then
+                  vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. ""
+              end
+
+              return kind
           end,
         },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        }
+          window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered({
+              max_width = 50,
+            }),
+            side_padding = 0,
+            col_offset = -3,
+          }
       }
-
-      cmp.setup.filetype({ 'sql' }, {
-        sources = {
-          { name = 'vim-dadbod-completion' },
-          { name = 'buffer' },
-        },
-      })
-
     end,
   }
 }

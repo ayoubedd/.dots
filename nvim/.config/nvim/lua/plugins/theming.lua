@@ -37,14 +37,40 @@ return {
           -- miscs = {}, -- Uncomment to turn off hard-coded styles
         },
         color_overrides = {},
-        custom_highlights = {},
+        custom_highlights = function(colors)
+            return {
+                Comment = { fg = colors.flamingo },
+                TabLineSel = { bg = colors.pink },
+                CmpBorder = { fg = colors.surface2 },
+                Pmenu = { bg = colors.red },
+            }
+        end,
+        highlight_overrides = {
+            all = function(colors)
+                return {
+                    NvimTreeNormal = { fg = colors.none },
+                    CmpBorder = { fg = "#3e4145" },
+                }
+            end,
+        },
         default_integrations = true,
         integrations = {
+          mason = true,
+          telescope = {
+            enabled = true
+          },
+          lsp_trouble = true,
+          lsp_saga = true,
           cmp = true,
           gitsigns = true,
           nvimtree = true,
-          treesitter = true,
           notify = false,
+          which_key = true,
+          illuminate = true,
+
+          treesitter = true,
+          treesitter_context = true,
+
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })

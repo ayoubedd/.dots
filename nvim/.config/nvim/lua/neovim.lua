@@ -81,3 +81,6 @@ opt.softtabstop = 2
 
 opt.termguicolors = true
 o.guifont = "JetBrainsMono Nerd Font:h18"
+
+o.ph = 10
+o.pw = 5
