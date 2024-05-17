@@ -53,7 +53,7 @@ DIRS=(
   .ssh/
 )
 
-# A list of packges to be installed
+# A list of packages to be installed
 PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
   stow gdb nasm lf alacritty vim eza qt6-wayland qt5-wayland \
   git python python-pip tree docker btop noto-fonts-cjk \
@@ -85,7 +85,7 @@ then
         msg WARNING 'continuing as ROOT'
       ;;
       *)
-        msg INFO 'exitting, rerun script as a regular user'
+        msg INFO 'exiting, rerun script as a regular user'
         exit 1
       ;;
     esac
@@ -103,7 +103,7 @@ sudo pacman --needed -S ${PACKAGES[@]}
 msg INFO 'installing rust toolchain'
 rustup default stable
 
-msg INFO 'insalling AUR packages'
+msg INFO 'installing AUR packages'
 paru --needed -S ${AUR_PACKAGES[@]}
 
 msg INFO 'cloning .dotfiles repo'
@@ -112,7 +112,7 @@ then
     cd "$DOTFILES_DIR"
     if [ ! -d "$DOTFILES_DIR/.git" ]
     then
-      msg ERROR "existing \"$DOTFILES_DIR\" is not a repositry"
+      msg ERROR "existing \"$DOTFILES_DIR\" is not a repository"
       exit 1
     fi
     git pull
@@ -135,9 +135,7 @@ stow -vSt ~/ $(cat ./stowables.txt)
 msg INFO 'updating xdg-user directories'
 xdg-user-dirs-update --force
 
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 source "$HOME/.zshenv"
-source "$ZDOTDIR/.zshrc"
 
 # msg INFO 'building bat themes cache'
 # bat cache --build
@@ -172,7 +170,7 @@ sudo systemctl enable --now tlp.service
 systemctl --user start gcr-ssh-agent.socket
 systemctl --user enable --now gnome-keyring-daemon.service
 
-msg INFO 'adding user to various gropus'
+msg INFO 'adding user to various groups'
 sudo usermod -aG video,docker $USER
 
 msg INFO 'generating mirrors'
