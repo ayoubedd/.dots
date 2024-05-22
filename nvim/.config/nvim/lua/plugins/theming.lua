@@ -37,14 +37,6 @@ return {
           -- miscs = {}, -- Uncomment to turn off hard-coded styles
         },
         color_overrides = {},
-        custom_highlights = function(colors)
-            return {
-                Comment = { fg = colors.flamingo },
-                TabLineSel = { bg = colors.pink },
-                CmpBorder = { fg = colors.surface2 },
-                Pmenu = { bg = colors.red },
-            }
-        end,
         highlight_overrides = {
             all = function(colors)
                 return {
