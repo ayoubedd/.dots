@@ -74,7 +74,7 @@ PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
 AUR_PACKAGES=(catppuccin-cursors-mocha wl-color-picker \
   catppuccin-gtk-theme-mocha neovim-git swaylock-effects-git \
   wofi-emoji-git battop ripdrag-git pam-fprint-grosshack \
-  ldm macchina-bin)
+  ldm macchina-bin overskride)
 
 if [[ "$USER" == "root" ]]
 then
