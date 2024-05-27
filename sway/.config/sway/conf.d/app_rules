@@ -44,6 +44,17 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="Windscribe"] floating enable
 for_window [app_id="xfce-polkit"] floating enable
 
+for_window [app_id="io.github.kaii_lb.Overskride"] {
+  floating enable
+  resize set 1200 800
+}
+
+
+for_window [app_id="xdg-desktop-portal-gtk"] {
+  floating enable
+  resize set 1200 800
+}
+
 # Apps default workspace
 # assign [app_id="^Alacritty$"] 1
 assign [app_id="firefox"] 2
