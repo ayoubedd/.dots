@@ -157,6 +157,7 @@ sudo cp ./confs/udev/*.rules /etc/udev/rules.d/
 sudo cp ./confs/pam/* /etc/pam.d/
 sudo cp ./confs/sudoers.d/* /etc/sudoers.d/
 sudo cp ./confs/pulse/* /etc/pulse/
+sudo cp ./confs/bluetooth/* /etc/bluetooth/
 sudo cp ./confs/nft/nftables.conf /etc/nftables.conf
 
 msg INFO 'enabling system services'
