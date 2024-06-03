@@ -21,9 +21,10 @@ setopt NOMATCH
 setopt INTERACTIVE_COMMENTS
 setopt APPEND_HISTORY
 
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-export HISTSIZE=50000     # Maximum events for internal history
-export SAVEHIST=$HISTSIZE     # Maximum events in history file
+HISTFILE="$XDG_CACHE_HOME/zsh/history"
+HISTSIZE=50000     # Maximum events for internal history
+SAVEHIST=$HISTSIZE     # Maximum events in history file
+HISTDUP=erase
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.

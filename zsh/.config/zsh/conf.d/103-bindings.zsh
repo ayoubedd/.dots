@@ -7,6 +7,8 @@ bindkey -M vicmd 'e' edit-command-line
 
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd '^p' history-substring-search-up
+bindkey -M vicmd '^n' history-substring-search-down
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
