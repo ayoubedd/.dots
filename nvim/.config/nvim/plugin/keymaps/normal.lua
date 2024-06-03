@@ -43,3 +43,4 @@ set("n", "<leader>sr", [[<cmd>lua require("persistence").load()<cr>]], { desc = 
 
 -- restore the last session
 set("n", "<leader>sl", [[<cmd>lua require("persistence").load({ last = true })<cr>]], { desc = "Restore last session" })
+set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Close buffer" })
