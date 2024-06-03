@@ -1,4 +1,7 @@
-# Insuring Zap installed
+# Timezsh start
+if [ -n "${ZSH_DEBUGRC+1}" ]; then zmodload zsh/zprof; fi
+
+# Ensuring Zap installed
 [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] &&
   zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 
@@ -18,8 +21,8 @@ plug "arzzen/calc.plugin.zsh"
 plug "jeffreytse/zsh-vi-mode"
 plug "wazum/zsh-directory-dot-expansion"
 plug "hlissner/zsh-autopair"
-plug "ael-code/zsh-colored-man-pages"
 
+# Adding local completions to fpath
 fpath+=($ZDOTDIR/completions)
 
 autoload -Uz compinit
@@ -35,3 +38,6 @@ else
   touch "$_comp_path"
 fi
 unset _comp_path
+
+# Timezsh end
+if [ -n "${ZSH_DEBUGRC+1}" ]; then zprof; fi

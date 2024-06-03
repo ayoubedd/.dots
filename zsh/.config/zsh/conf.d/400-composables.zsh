@@ -13,7 +13,8 @@ function fkill {
 }
 
 function fman {
-  man -k - | fzf | cut -d ' ' -f 1 | xargs man
+  local ARGS="$(man -k - | fzf | cut -d ' ' -f 1)"
+  man "$ARGS"
 }
 
 function fopen {
