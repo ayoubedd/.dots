@@ -63,7 +63,7 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    version = "main", -- Use for stability; omit to use `main` branch for the latest features
+    version = "v2.1.10",
     event = "VeryLazy",
     opts = {},
     config = true
