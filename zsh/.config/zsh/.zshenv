@@ -20,6 +20,9 @@ export GOBIN="$GOPATH/bin"
 # Cargo path
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
+# Deno path
+export DENO_DIR="$XDG_CACHE_HOME/deno"
+
 export PATH="$HOME/.local/bin:$HOME/.ghcup/bin:$GOBIN:$CARGO_HOME/bin:$VOLTA_HOME/bin:$PATH"
 
 # Preferred editor for local and remote sessions
@@ -31,9 +34,10 @@ else
   export EDITOR='nvim'
 fi
 
+# Repl's History files
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 export DENO_REPL_HISTORY="$XDG_CACHE_HOME/deno_repl_history"
-export DENO_DIR="$XDG_CACHE_HOME/deno/"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonstartup.py"
 
 # Curl
 export CURL_HOME="$XDG_CONFIG_HOME/curl"
