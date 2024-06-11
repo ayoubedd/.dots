@@ -9,8 +9,6 @@ if [ ! -f "$1" ]; then
   exit 1
 fi
 
-URL=$(grep "URL=" "$1" | sed 's/URL=//')
-
-echo "Opening $URL"
+URL=$(grep -i "url=" "$1" | sed 's/url=//i')
 
 xdg-open "$URL"
