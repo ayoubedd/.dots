@@ -6,10 +6,10 @@ TMP_FILE=$(mktemp)
 
 (
 cat <<EOL > $TMP_FILE
-gtk-theme=catppuccin-mocha-blue-standard+default-dark
+gtk-theme=catppuccin-mocha-blue-standard+default
 icon-theme=Papirus-Dark
 color-scheme=prefer-dark
-cursor-theme=Catppuccin-Mocha-Dark-Cursors
+cursor-theme=catppuccin-mocha-dark-cursors
 cursor-size=22
 monospace-font-name='Noto Sans Mono 11'
 font-name='Noto Sans 11'

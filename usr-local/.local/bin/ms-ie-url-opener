@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+set -e
+
+echo param "$1"
+
+if [ ! -f "$1" ]; then
+  echo exiting
+  exit 1
+fi
+
+URL=$(grep "URL=" "$1" | sed 's/URL=//')
+
+echo "Opening $URL"
+
+xdg-open "$URL"

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Internet Explorer URL Opener
+Exec=/home/orbit/.local/bin/ms-ie-url-opener %F
+NoDisplay=true
+StartupNotify=false
+MimeType=application/x-mswinurl;
