@@ -28,3 +28,9 @@ bindkey -M menuselect '/' history-incremental-search-backward
 
 # Autosuggestions
 bindkey -M viins '^ ' autosuggest-accept
+
+bindkey -M vicmd yy zsh-system-clipboard-vicmd-vi-yank-whole-line
+bindkey -M viopp y zsh-system-clipboard-vicmd-vi-yank
+
+zle -N yazi_fm
+bindkey -M vicmd f yazi_fm
