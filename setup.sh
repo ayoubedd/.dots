@@ -38,8 +38,8 @@ function msg() {
   echo $2
 }
 
-REPO_URL=https://github.com/ayoubedd/.dotfiles
-DOTFILES_DIR="$HOME/.dotfiles"
+REPO_URL=https://github.com/ayoubedd/.dots
+DOTFILES_DIR="$HOME/.dots"
 USER=$(whoami)
 
 # Some directories to created
