@@ -5,7 +5,6 @@ electron
 fontconfig
 git
 kanshi
-lf
 mako
 mpv
 paru

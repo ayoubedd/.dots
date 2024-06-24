@@ -55,7 +55,7 @@ DIRS=(
 
 # A list of packages to be installed
 PACKAGES=(base-devel zsh rustup go bat mpv pacman-contrib \
-  stow gdb nasm lf alacritty vim eza qt6-wayland qt5-wayland \
+  stow gdb nasm alacritty vim eza qt6-wayland qt5-wayland \
   git python python-pip tree docker btop noto-fonts-cjk \
   docker-compose downgrade zip unzip sway playerctl github-cli \
   paru greetd greetd-tuigreet grim wtype slurp glow bear \
